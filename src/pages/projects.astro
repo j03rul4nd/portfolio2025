@@ -1,0 +1,91 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+
+import CalltoactionImpact from '../components/calltoactionImpact.astro';
+import Projectgrid from '../components/projectgrid.astro';
+import HeroProject from '../components/heroProject.astro';
+import Header from '../components/header_ui.astro'; 
+import Footer from '../components/footer_ui.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body  class="bg-neutral-950 text-neutral-100 antialiased min-h-screen flex flex-col">
+		<Header />
+        <HeroProject />
+        <Projectgrid />
+        <!-- Divider -->
+        <div class="w-full border-t border-neutral-800 my-12"></div>
+		<CalltoactionImpact />
+		<Footer />
+	</body>
+    
+</html>
+
+ <script type="module">
+    lucide.createIcons();
+
+    // Modal logic
+    const openBtn = document.getElementById('open-gisize-modal');
+    const closeBtn = document.getElementById('close-gisize-modal');
+    const modal = document.getElementById('gisize-modal');
+    openBtn.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+      document.body.classList.add('modal-open');
+      // Chart only renders if modal is open
+      setTimeout(() => renderGisizeChart(), 200);
+    });
+    closeBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      document.body.classList.remove('modal-open');
+    });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        document.body.classList.remove('modal-open');
+      }
+    });
+
+    // Chart.js for Gisize Maps
+    let gisizeChartInstance = null;
+    function renderGisizeChart() {
+      const ctx = document.getElementById('gisizeChart').getContext('2d');
+      if (gisizeChartInstance) gisizeChartInstance.destroy();
+      gisizeChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          datasets: [{
+            data: [12000, 18000, 23000, 25000, 22000, 27000],
+            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(59, 130, 246, 0.08)',
+            tension: 0.4,
+            fill: true,
+            pointRadius: 3,
+            pointBackgroundColor: '#3b82f6',
+            pointBorderWidth: 0,
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: {
+              ticks: { color: '#a3a3a3', font: { family: 'Inter', weight: 500 } },
+              grid: { display: false }
+            },
+            y: {
+              ticks: { color: '#a3a3a3', font: { family: 'Inter', weight: 500 } },
+              grid: { color: '#262626', borderDash: [3, 3] }
+            }
+          }
+        }
+      });
+    }
+  </script>
+

@@ -1,0 +1,71 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+
+import CalltoactionImpact from '../components/calltoactionImpact.astro';
+import ImpactMetrics from '../components/impactMetrics.astro';
+import ChartsHighlights from '../components/chartsHighlights.astro';
+import ImpactTestimonials from '../components/impactTestimonials.astro';
+import ImpactJero from '../components/ImpactJero.astro';
+import Header from '../components/header_ui.astro'; 
+import Footer from '../components/footer_ui.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body  class="bg-neutral-950 text-neutral-100 antialiased min-h-screen flex flex-col">
+		<Header />
+        <ImpactJero />
+        <ImpactMetrics />
+        <ChartsHighlights />
+        <ImpactTestimonials />
+		<CalltoactionImpact />
+		<Footer />
+	</body>
+    
+  <script type="module">
+    lucide.createIcons();
+
+    // Impact Chart
+    const ctx = document.getElementById('impactChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: [
+          'Industrial Automation',
+          'SaaS Platforms',
+          '3D Visualization',
+          'Process Optimization',
+          'Real-time Data'
+        ],
+        datasets: [{
+          data: [30, 25, 18, 17, 10],
+          backgroundColor: [
+            'rgba(59,130,246,0.8)',   // blue-500
+            'rgba(34,197,94,0.8)',    // green-500
+            'rgba(168,85,247,0.8)',   // purple-500
+            'rgba(251,191,36,0.8)',   // yellow-400
+            'rgba(250,204,21,0.8)'    // yellow-300
+          ],
+          borderWidth: 2,
+          borderColor: '#18181b',
+        }]
+      },
+      options: {
+        plugins: {
+          legend: {
+            labels: {
+              color: '#e5e7eb',
+              font: { family: 'Inter', size: 14, weight: 500 }
+            }
+          }
+        },
+        cutout: '72%',
+      }
+    });
+  </script>
+</html>
+

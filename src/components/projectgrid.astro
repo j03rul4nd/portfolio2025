@@ -1,0 +1,124 @@
+  <!-- Projects Grid -->
+  <section class="w-full max-w-5xl mx-auto px-6 py-6 border-t border-neutral-800">
+    <div class="grid gap-8 md:grid-cols-2">
+      <!-- Project 1 -->
+      <button id="open-gisize-modal" class="text-left bg-neutral-900 rounded-xl border border-neutral-800 overflow-hidden flex flex-col shadow-sm hover:shadow-xl transition-shadow focus:outline-none">
+        <img src="https://images.unsplash.com/photo-1621619856624-42fd193a0661?w=2160&q=80" alt="Gisize Maps" class="w-full h-52 object-cover">
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="flex items-center gap-2 mb-2">
+            <svg class="lucide lucide-map text-blue-500" width="20" height="20"></svg>
+            <span class="text-base font-semibold text-white tracking-tight">Gisize Maps</span>
+          </div>
+          <p class="text-neutral-300 text-sm mb-4 flex-1">
+            Real-time geospatial platform for industrial operations, enabling live monitoring and analytics across 100+ sites.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">TypeScript</span>
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">.NET</span>
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">SignalR</span>
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">Azure</span>
+          </div>
+        </div>
+      </button>
+      <!-- Project 2 -->
+      <div class="bg-neutral-900 rounded-xl border border-neutral-800 overflow-hidden flex flex-col shadow-sm hover:shadow-xl transition-shadow">
+        <img src="https://images.unsplash.com/photo-1629946832022-c327f74956e0?w=2160&q=80" alt="BIM 3D Platform" class="w-full h-52 object-cover">
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="flex items-center gap-2 mb-2">
+            <svg class="lucide lucide-cube text-purple-400" width="20" height="20"></svg>
+            <span class="text-base font-semibold text-white tracking-tight">BIM 3D Platform</span>
+          </div>
+          <p class="text-neutral-300 text-sm mb-4 flex-1">
+            Interactive 3D modeling platform for building information management, reducing onboarding time by 40%.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">Three.js</span>
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">WebAssembly</span>
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">TypeScript</span>
+          </div>
+        </div>
+      </div>
+      <!-- Project 3 -->
+      <div class="bg-neutral-900 rounded-xl border border-neutral-800 overflow-hidden flex flex-col shadow-sm hover:shadow-xl transition-shadow">
+        <img src="https://images.unsplash.com/photo-1724525647065-f948fc102e68?w=2160&q=80" alt="Scheduler Engine" class="w-full h-52 object-cover">
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="flex items-center gap-2 mb-2">
+            <svg class="lucide lucide-clock text-yellow-400" width="20" height="20"></svg>
+            <span class="text-base font-semibold text-white tracking-tight">Scheduler Engine</span>
+          </div>
+          <p class="text-neutral-300 text-sm mb-4 flex-1">
+            Advanced automation and scheduling for teams, saving over 120,000 hours of manual work.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">.NET</span>
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">C#</span>
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">Azure Functions</span>
+          </div>
+        </div>
+      </div>
+      <!-- Project 4 -->
+      <div class="bg-neutral-900 rounded-xl border border-neutral-800 overflow-hidden flex flex-col shadow-sm hover:shadow-xl transition-shadow">
+        <img src="https://images.unsplash.com/photo-1642615835477-d303d7dc9ee9?w=2160&q=80" alt="Realtime Data Hub" class="w-full h-52 object-cover">
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="flex items-center gap-2 mb-2">
+            <svg class="lucide lucide-bar-chart-2 text-green-400" width="20" height="20"></svg>
+            <span class="text-base font-semibold text-white tracking-tight">Realtime Data Hub</span>
+          </div>
+          <p class="text-neutral-300 text-sm mb-4 flex-1">
+            Unified API and dashboard for ingesting and visualizing industrial IoT data with 99.98% uptime.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">Node.js</span>
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">TypeScript</span>
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">PostgreSQL</span>
+            <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">Docker</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Blog for Gisize Maps -->
+  <div id="gisize-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-sm transition">
+    <div class="relative w-full max-w-2xl mx-auto my-12 bg-neutral-950 rounded-2xl border border-neutral-800 shadow-2xl overflow-y-auto max-h-[90vh] flex flex-col">
+      <button id="close-gisize-modal" class="absolute top-4 right-4 p-2 text-neutral-400 hover:text-white transition rounded-full focus:outline-none bg-neutral-900 border border-neutral-800">
+        <svg class="lucide lucide-x" width="22" height="22"></svg>
+      </button>
+      <img src="https://images.unsplash.com/photo-1621619856624-42fd193a0661?w=2160&q=80" alt="Gisize Maps" class="rounded-t-2xl w-full h-56 object-cover">
+      <div class="p-8 pt-6 flex-1 flex flex-col">
+        <div class="flex items-center gap-2 mb-3">
+          <svg class="lucide lucide-map text-blue-500" width="22" height="22"></svg>
+          <span class="text-lg font-semibold tracking-tight text-white">Gisize Maps</span>
+        </div>
+        <h2 class="text-2xl font-semibold tracking-tight text-white mb-4">A Real-Time Geospatial Platform for Industrial Impact</h2>
+        <p class="text-neutral-300 mb-4 leading-relaxed">
+          <span class="text-white font-medium">Gisize Maps</span> is a cutting-edge, real-time geospatial platform engineered for industrial operations. Designed to empower teams with live data insights across over 100 global sites, it seamlessly integrates sensors, IoT devices, and operational dashboards for actionable analytics.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">TypeScript</span>
+          <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">.NET</span>
+          <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">SignalR</span>
+          <span class="bg-neutral-800 text-neutral-300 text-xs px-2 py-0.5 rounded">Azure</span>
+        </div>
+        <div class="border-l-4 border-blue-500 pl-4 mb-6">
+          <span class="text-neutral-400 text-sm">"We saw operational downtime drop by 25% after deployment. Real-time insights have become essential to our daily workflow." <span class="block mt-2 text-xs text-neutral-500">— Site Operations Lead</span></span>
+        </div>
+        <h3 class="text-lg font-semibold tracking-tight text-white mb-2">Key Features</h3>
+        <ul class="list-disc list-inside text-neutral-300 mb-6 space-y-1">
+          <li>Live site map with dynamic asset tracking and custom layers</li>
+          <li>Instant event alerts and anomaly detection</li>
+          <li>Intuitive analytics dashboard with drill-down capabilities</li>
+          <li>Role-based access, audit trails, and secure data streams</li>
+        </ul>
+        <h3 class="text-lg font-semibold tracking-tight text-white mb-2">Technical Approach</h3>
+        <p class="text-neutral-300 mb-4">
+          Leveraging <span class="text-white">SignalR</span> for real-time communications, <span class="text-white">.NET Core</span> APIs for scalable backend, and <span class="text-white">TypeScript</span> for robust front-end interactions, Gisize Maps delivers lightning-fast updates and resilient uptime through Azure cloud services.
+        </p>
+        <div class="w-full mt-4 mb-2">
+          <canvas id="gisizeChart" height="120"></canvas>
+        </div>
+        <div class="text-xs text-neutral-500 text-right">Sample: Live events processed per month (2024)</div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->

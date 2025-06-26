@@ -1,0 +1,497 @@
+    <!-- Impact/Experience Highlights -->
+    <!-- Spline Background -->
+    <!-- <div class="spline-container">
+      <iframe src='https://my.spline.design/claritystream-a72K0KUwFoZV82QBzvu52Kai/' frameborder='0' width='100%' height='100%'></iframe>
+    </div> -->
+  <section id="impact" class="w-full max-w-5xl mx-auto px-6 py-10 border-t border-neutral-800 relative z-20 bg-neutral-950">
+
+    <div class="mb-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-white mb-2">Delivering Impact Where It Matters</h2>
+      <p class="text-neutral-300 text-base max-w-2xl">
+        Proven track record in architecting, optimizing, and shipping advanced digital products for industrial and SaaS environments, leveraging leading-edge technologies and product thinking.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1: Gisize Maps with Smart City Mapbox -->
+      <div data-animate class="bg-neutral-900 rounded-2xl border border-neutral-800 flex flex-col overflow-hidden group hover:border-neutral-700 transition-all duration-300 ease-out">
+        <div class="relative h-72 md:h-64">
+          <div id="smartCityMap" class="w-full h-full rounded-t-2xl overflow-hidden bg-neutral-800">
+            <!-- Smart city data overlay -->
+            <div class="smart-city-overlay">
+              <div class="data-panel pulse-animation">
+                <div class="data-value text-green-400" id="trafficValue">87%</div>
+                <div class="data-label">Traffic</div>
+              </div>
+              <div class="data-panel pulse-animation">
+                <div class="data-value text-blue-400" id="energyValue">342kW</div>
+                <div class="data-label">Energy</div>
+              </div>
+              <div class="data-panel pulse-animation">
+                <div class="data-value text-purple-400" id="iotValue">1,247</div>
+                <div class="data-label">IoT</div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4 z-10 p-3 bg-black/50 backdrop-blur-md rounded-xl border border-white/10">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin text-blue-500 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <h2 class="text-md font-semibold text-white tracking-tight">Gisize Maps</h2>
+            </div>
+            <p class="text-white/70 text-xs mt-1.5">Smart city geospatial intelligence</p>
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col">
+          <p class="text-neutral-300 text-sm font-normal mb-4 flex-grow">
+Real-time geospatial application for industrial data visualization. Built with high-performance rendering and System Platform integration for mission-critical monitoring operations.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="text-xs px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-400 font-medium">Leaflet</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-400 font-medium">IoT</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-400 font-medium">Real-time</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-400 font-medium">SignalR</span>
+          </div>
+          <div class="mt-4 pt-4 border-t border-neutral-800">
+            <p class="text-xs text-neutral-500">Transforming cities through intelligent data visualization.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Gisize BIM 3D with Globe -->
+      <div data-animate class="bg-neutral-900 rounded-2xl border border-neutral-800 flex flex-col overflow-hidden group hover:border-neutral-700 transition-all duration-300 ease-out">
+        <div class="relative h-72 md:h-64">
+          <canvas
+            id="cobe"
+            style="width: 100%; height: 100%;"
+            width="1000"
+            height="1000"
+            class="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105 rounded-t-2xl"
+          ></canvas>
+          <div class="absolute top-4 left-4 right-4 z-10 p-3 bg-black/50 backdrop-blur-md rounded-xl border border-white/10">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cube text-purple-500 flex-shrink-0"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+              <h2 class="text-md font-semibold text-white tracking-tight">Gisize BIM 3D</h2>
+            </div>
+            <p class="text-white/70 text-xs mt-1.5">Global 3D model visualization</p>
+          </div>
+        </div>
+        <div class="p-5 flex-grow flex flex-col">
+          <p class="text-neutral-300 text-sm font-normal mb-4 flex-grow">
+            Advanced 3D model viewer with global project integration. Streamlines international design workflows and eliminates desktop software dependencies through WebAssembly optimization.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="text-xs px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-400 font-medium">Three.js</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-400 font-medium">WebAssembly</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-400 font-medium">TypeScript</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Gisize Scheduler & Sequencer with Flow Animation -->
+      <div data-animate class="bg-neutral-900 rounded-2xl border border-neutral-800 flex flex-col overflow-hidden group hover:border-neutral-700 transition-all duration-300 ease-out">
+        <div class="p-6 flex justify-center bg-gradient-to-b from-neutral-800 to-neutral-900 relative">
+          <div class="w-full h-56 rounded-lg bg-neutral-900 border border-neutral-800 overflow-hidden relative">
+            <!-- Background grid -->
+            <div class="absolute inset-0 opacity-10">
+              <div class="w-full h-full" style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+            </div>
+            
+            <!-- Connections and nodes -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 200">
+              <g stroke="#4f46e5" stroke-width="1.5" fill="none">
+                <!-- User to Orders -->
+                <path class="connector" d="M120,60 L200,60" />
+                <circle cx="120" cy="60" r="3" fill="#4f46e5" class="pulse-dot"/>
+                <circle cx="200" cy="60" r="3" fill="#4f46e5" class="pulse-dot"/>
+                
+                <!-- Orders to Products -->
+                <path class="connector" d="M200,60 L280,60" />
+                <circle cx="280" cy="60" r="3" fill="#4f46e5" class="pulse-dot"/>
+                
+                <!-- User to Address -->
+                <path class="connector" d="M120,60 L120,140 L160,140" />
+                <circle cx="160" cy="140" r="3" fill="#4f46e5" class="pulse-dot"/>
+                
+                <!-- Orders to Payments -->
+                <path class="connector" d="M200,60 L200,140 L240,140" />
+                <circle cx="240" cy="140" r="3" fill="#4f46e5" class="pulse-dot"/>
+                
+                <!-- Address to Payments -->
+                <path class="connector" d="M160,140 L240,140" />
+              </g>
+            </svg>
+            
+            <!-- Entity Cards -->
+            <div class="absolute inset-0 w-full h-full">
+              <!-- Top row -->
+              <div class="absolute flex justify-center space-x-10" style="left: 0; right: 0; top: 35px">
+                <!-- Users card -->
+                <div class="w-24 h-16 bg-neutral-800 rounded-md border border-indigo-600/70 shadow-lg overflow-hidden flex flex-col">
+                  <div class="bg-indigo-900/30 text-indigo-300 text-[8px] px-1.5 py-0.5 font-medium">Tasks</div>
+                  <div class="px-1.5 py-1">
+                    <div class="h-0.5 w-full bg-neutral-700 mb-1 rounded-full"></div>
+                    <div class="h-0.5 w-2/3 bg-neutral-700 mb-1 rounded-full"></div>
+                    <div class="h-0.5 w-5/6 bg-neutral-700 rounded-full"></div>
+                  </div>
+                </div>
+                
+                <!-- Orders card -->
+                <div class="w-24 h-16 bg-neutral-800 rounded-md border border-indigo-600/70 shadow-lg overflow-hidden flex flex-col">
+                  <div class="bg-indigo-900/30 text-indigo-300 text-[8px] px-1.5 py-0.5 font-medium">Schedule</div>
+                  <div class="px-1.5 py-1">
+                    <div class="h-0.5 w-full bg-neutral-700 mb-1 rounded-full"></div>
+                    <div class="h-0.5 w-3/4 bg-neutral-700 mb-1 rounded-full"></div>
+                    <div class="h-0.5 w-1/2 bg-neutral-700 rounded-full"></div>
+                  </div>
+                </div>
+                
+                <!-- Products card -->
+                <div class="w-24 h-16 bg-neutral-800 rounded-md border border-indigo-600/70 shadow-lg overflow-hidden flex flex-col">
+                  <div class="bg-indigo-900/30 text-indigo-300 text-[8px] px-1.5 py-0.5 font-medium">Resources</div>
+                  <div class="px-1.5 py-1">
+                    <div class="h-0.5 w-full bg-neutral-700 mb-1 rounded-full"></div>
+                    <div class="h-0.5 w-4/5 bg-neutral-700 mb-1 rounded-full"></div>
+                    <div class="h-0.5 w-3/5 bg-neutral-700 rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Bottom row -->
+              <div class="absolute flex justify-center space-x-16" style="left: 0; right: 0; top: 125px">
+                <!-- Addresses card -->
+                <div class="w-24 h-16 bg-neutral-800 rounded-md border border-indigo-600/70 shadow-lg overflow-hidden flex flex-col">
+                  <div class="bg-indigo-900/30 text-indigo-300 text-[8px] px-1.5 py-0.5 font-medium">Workflow</div>
+                  <div class="px-1.5 py-1">
+                    <div class="h-0.5 w-full bg-neutral-700 mb-1 rounded-full"></div>
+                    <div class="h-0.5 w-2/3 bg-neutral-700 mb-1 rounded-full"></div>
+                    <div class="h-0.5 w-5/6 bg-neutral-700 rounded-full"></div>
+                  </div>
+                </div>
+                
+                <!-- Payments card -->
+                <div class="w-24 h-16 bg-neutral-800 rounded-md border border-indigo-600/70 shadow-lg overflow-hidden flex flex-col">
+                  <div class="bg-indigo-900/30 text-indigo-300 text-[8px] px-1.5 py-0.5 font-medium">Analytics</div>
+                  <div class="px-1.5 py-1">
+                    <div class="h-0.5 w-full bg-neutral-700 mb-1 rounded-full"></div>
+                    <div class="h-0.5 w-1/2 bg-neutral-700 mb-1 rounded-full"></div>
+                    <div class="h-0.5 w-3/4 bg-neutral-700 rounded-full"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-20"></div>
+        <div class="p-5 flex-grow flex flex-col">
+          <div class="flex items-center gap-2 mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock text-green-500 flex-shrink-0"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="text-md font-semibold text-white tracking-tight">Gisize Scheduler & Sequencer</span>
+          </div>
+          <p class="text-neutral-300 text-sm font-normal mb-4 flex-grow">
+Automated workflow and task scheduling platform for industrial operations. Improved operational efficiency by 40% through intelligent resource allocation.
+
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="text-xs px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-400 font-medium">.NET</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-400 font-medium">WPF</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-neutral-800 border border-neutral-700 text-neutral-400 font-medium">Workflow</span>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="border-t border-neutral-800 mt-12 pt-10 grid md:grid-cols-2 gap-8">
+      
+
+      <div>
+            <!-- Experience -->
+                    <div class="">
+                        <h3 class="text-2xl font-medium tracking-tight mb-8 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="building" class="lucide lucide-building w-5 h-5 mr-3 opacity-60"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>
+                            Experience
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="border-l-2 border-white/20 pl-6">
+                                <div class="text-sm opacity-60 mb-1">2023 - 2025</div>
+                                <div class="font-medium mb-2">Research and Development Developer</div>
+                                <div class="text-sm opacity-80">Becolve Digital Working on the GISize product family, developing 3D visualization solutions, process optimization, and critical infrastructure management</div>
+                            </div>
+                            <div class="border-l-2 border-white/20 pl-6">
+                                <div class="text-sm opacity-60 mb-1">2022 - 2023</div>
+                                <div class="font-medium mb-2">Development engineer</div>
+                                <h3 class="text-lg font-semibold text-white mb-1 tracking-tight">Zentinel MDZ · ZentoCore</h3>
+
+                                <div class="text-sm opacity-80 mb-2">
+                                  Architected a flexible industrial gateway platform for data ingestion, database setup, and visualization (Grafana/Power BI).
+                                </div>
+                                <div class="flex flex-wrap gap-1">
+                                  <span class="text-xs px-2 py-0.5 rounded bg-neutral-800 text-neutral-300">Vite</span>
+                                  <span class="text-xs px-2 py-0.5 rounded bg-neutral-800 text-neutral-300">TypeScript</span>
+                                  <span class="text-xs px-2 py-0.5 rounded bg-neutral-800 text-neutral-300">WebSocket</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-1 tracking-tight">Personal SaaS & Tools</h3>
+        <ul class="text-neutral-300 text-sm space-y-2 mt-2">
+          <li>
+            <span class="font-medium text-white">3D SRTM Terrain Viewer:</span>
+            3D terrain editing from NASA SRTM API, custom model export.
+          </li>
+          <li>
+            <span class="font-medium text-white">PBR Texture Viewer:</span>
+            In-browser 3D PBR inspection for fast prototyping.
+          </li>
+          <li>
+            <span class="font-medium text-white">Custom QR Code Generator:</span>
+            3D/gradient QR codes with interactive visualization.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+      <script type="module">
+    lucide.createIcons();
+    //card gisize 
+        import createGlobe from 'https://cdn.skypack.dev/cobe'
+
+    // Smart city data simulation
+    const smartCityData = {
+      traffic: { value: 87, trend: 'up' },
+      energy: { value: 342, trend: 'stable' },
+      iot: { value: 1247, trend: 'up' }
+    };
+
+    function updateSmartCityData() {
+      smartCityData.traffic.value += (Math.random() - 0.5) * 10;
+      smartCityData.energy.value += (Math.random() - 0.5) * 50;
+      smartCityData.iot.value += Math.floor((Math.random() - 0.5) * 20);
+
+      smartCityData.traffic.value = Math.max(0, Math.min(100, smartCityData.traffic.value));
+      smartCityData.energy.value = Math.max(200, Math.min(500, smartCityData.energy.value));
+      smartCityData.iot.value = Math.max(1000, Math.min(1500, smartCityData.iot.value));
+
+      document.getElementById('trafficValue').textContent = Math.round(smartCityData.traffic.value) + '%';
+      document.getElementById('energyValue').textContent = Math.round(smartCityData.energy.value) + 'kW';
+      document.getElementById('iotValue').textContent = smartCityData.iot.value.toLocaleString();
+    }
+
+    // Initialize smart city map
+    if (document.getElementById('smartCityMap')) {
+      const maptilerKey = 'b2vaX1LpH0ZoVBCMrhNY';
+      const longitud = 2.3522;
+      const latitud = 48.8566;
+
+      const smartCityMarkers = [
+        { coordinates: [2.3522, 48.8566], type: 'data-center', color: '#06b6d4', title: 'Central Data Hub' },
+        { coordinates: [2.2945, 48.8584], type: 'traffic-control', color: '#10b981', title: 'Traffic Management' },
+        { coordinates: [2.3376, 48.8606], type: 'energy-grid', color: '#f59e0b', title: 'Smart Grid Node' },
+        { coordinates: [2.3730, 48.8529], type: 'environmental', color: '#8b5cf6', title: 'Environmental Station' }
+      ];
+
+      try {
+        const mapl3d = new maplibregl.Map({
+          container: 'smartCityMap',
+          style: `https://api.maptiler.com/maps/streets/style.json?key=${maptilerKey}`,
+          center: [longitud, latitud],
+          zoom: 13,
+          bearing: -12,
+          pitch: 45,
+          interactive: true,
+          attributionControl: false
+        });
+
+        mapl3d.on('load', () => {
+          smartCityMarkers.forEach((markerData, index) => {
+            const marker = new maplibregl.Marker({ 
+              color: markerData.color,
+              scale: 0.8
+            })
+              .setLngLat(markerData.coordinates)
+              .addTo(mapl3d);
+
+            setTimeout(() => {
+              const element = marker.getElement();
+              element.style.animation = 'pulse 3s infinite';
+            }, index * 150);
+          });
+        });
+
+        setInterval(updateSmartCityData, 2000);
+      } catch (error) {
+        console.error("Error initializing map:", error);
+        document.getElementById('smartCityMap').innerHTML = '<div class="flex items-center justify-center h-full bg-neutral-800 text-neutral-400 text-center text-sm">Smart city simulation ready</div>';
+        setInterval(updateSmartCityData, 2000);
+      }
+    }
+
+    // Initialize globe for BIM 3D
+    let phi = 0.1;
+    let thetaOffset = 0;
+    let canvas = document.getElementById("cobe");
+
+    if (canvas) {
+      const globe = createGlobe(canvas, {
+        devicePixelRatio: 2,
+        width: canvas.clientWidth * 2,
+        height: canvas.clientHeight * 2,
+        phi: phi,
+        theta: 0.3,
+        dark: 1,
+        diffuse: 1.5,
+        scale: 1.0,
+        mapSamples: 22000,
+        mapBrightness: 7,
+        baseColor: [0.12, 0.12, 0.30],
+        markerColor: [0.6, 0.4, 1],
+        glowColor: [0.12, 0.12, 0.30],
+        offset: [0,0],
+        markers: [
+          { location: [37.7595, -122.4367], size: 0.04 },
+          { location: [40.7128, -74.0060], size: 0.04 },
+          { location: [51.5074, -0.1278], size: 0.03 },
+          { location: [35.6762, 139.6503], size: 0.03 },
+          { location: [-33.8688, 151.2093], size: 0.03 },
+          { location: [22.3193, 114.1694], size: 0.03 }
+        ],
+        onRender: (state) => {
+          state.phi = phi + thetaOffset;
+          phi += 0.002;
+          state.width = canvas.clientWidth * 2;
+          state.height = canvas.clientHeight * 2;
+        }
+      });
+
+      const onPointerDown = (e) => {
+        canvas.style.cursor = 'grabbing';
+      }
+      const onPointerUp = () => {
+        canvas.style.cursor = 'grab';
+      }
+      const onPointerMove = (e) => {
+        if (e.buttons === 1) {
+          thetaOffset -= e.movementX * 0.005;
+        }
+      }
+
+      canvas.addEventListener('pointerdown', onPointerDown);
+      canvas.addEventListener('pointerup', onPointerUp);
+      canvas.addEventListener('pointermove', onPointerMove);
+      canvas.style.cursor = 'grab';
+    }
+
+    // Simple stagger animation for cards
+    const animatedElements = document.querySelectorAll('[data-animate]');
+    animatedElements.forEach((el, i) => {
+      el.classList.add('animate-enter', 'transition-all', 'duration-700', 'ease-out');
+      setTimeout(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0) scale(1)';
+        el.style.filter = 'blur(0)';
+      }, 100 + i * 150);
+    });
+
+
+
+
+
+  </script>
+
+
+  <style>
+/* card gisize  */
+ .animate-enter {
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+      filter: blur(4px);
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #171717;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #404040;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #525252;
+    }
+    .connector {
+      stroke-dasharray: 4;
+      animation: dash 30s linear infinite;
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: 1000; }
+    }
+    .pulse-dot {
+      animation: pulseDot 2s ease-in-out infinite;
+    }
+    @keyframes pulseDot {
+      0%,100% { opacity: 0.7 }
+      50% { opacity: 1 }
+    }
+    .maplibregl-ctrl-logo { display: none !important; }
+    .maplibregl-popup-content {
+      background: #1e293b;
+      color: #e2e8f0;
+      border-radius: 8px;
+      border: 1px solid #475569;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+    }
+    .smart-city-overlay {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      right: 8px;
+      z-index: 1000;
+      pointer-events: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .data-panel {
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(71, 85, 105, 0.3);
+      border-radius: 6px;
+      padding: 6px 8px;
+      color: #e2e8f0;
+      font-size: 10px;
+      font-weight: 500;
+      min-width: 60px;
+      text-align: center;
+    }
+    .data-value {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 1px;
+    }
+    .data-label {
+      font-size: 8px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+
+
+
+
+
+  </style>
