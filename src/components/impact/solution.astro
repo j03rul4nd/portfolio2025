@@ -1,0 +1,133 @@
+---
+// Solution.astro
+---
+
+<style>
+  .animate-slide-up { 
+    animation: slideUp 0.8s ease-out forwards; 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  @keyframes slideUp { 
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    } 
+  }
+  .glass-effect { 
+    background: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+  }
+</style>
+
+<section id="solution" class="py-20 px-6 content-overlay">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 animate-slide-up">
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">My Unique Position: I've Built These Solutions From Within</h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">3 years in industrial R&D developing exactly these types of products</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      <div class="animate-slide-up" style="animation-delay: 0.2s;">
+        <h3 class="text-3xl font-bold mb-6 text-white">Proven Track Record</h3>
+        <div class="space-y-6">
+          <div class="glass-effect rounded-xl p-6">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                <i data-lucide="map-pin" class="w-5 h-5 text-blue-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white">GISize Maps - Industrial Geospatial System</h4>
+                <p class="text-sm text-gray-400">1,176 IoT points • 251kW energy monitoring • 97% traffic optimization</p>
+              </div>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+              <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-medium">Leaflet</span>
+              <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-medium">IoT Integration</span>
+              <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-medium">SignalR</span>
+            </div>
+          </div>
+
+          <div class="glass-effect rounded-xl p-6">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                <i data-lucide="box" class="w-5 h-5 text-purple-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white">GISize BIM 3D - Global Industrial Visualizer</h4>
+                <p class="text-sm text-gray-400">Three.js • WebAssembly • Eliminates desktop dependencies</p>
+              </div>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+              <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium">Three.js</span>
+              <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium">WebAssembly</span>
+              <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium">TypeScript</span>
+            </div>
+          </div>
+
+          <div class="glass-effect rounded-xl p-6">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                <i data-lucide="settings" class="w-5 h-5 text-green-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white">GISize Scheduler & Sequencer</h4>
+                <p class="text-sm text-gray-400">40% efficiency improvement • Smart automation • .NET/WPF</p>
+              </div>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+              <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs font-medium">.NET</span>
+              <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs font-medium">WPF</span>
+              <span class="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs font-medium">Automation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="animate-slide-up" style="animation-delay: 0.4s;">
+        <div class="glass-effect rounded-2xl p-8">
+          <h3 class="text-2xl font-semibold mb-6 text-white">My Competitive Advantage</h3>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i data-lucide="target" class="w-4 h-4 text-blue-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2 text-white">Sector-Specific Knowledge</h4>
+                <p class="text-gray-300 text-sm">3 years building exactly these products in production environments</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i data-lucide="unlock" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2 text-white">No Vendor Lock-in Model</h4>
+                <p class="text-gray-300 text-sm">Custom development, transferable code, no proprietary dependencies</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i data-lucide="clock" class="w-4 h-4 text-purple-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2 text-white">Realistic Estimates</h4>
+                <p class="text-gray-300 text-sm">I know exactly what takes 2 weeks and what takes 2 months</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i data-lucide="share" class="w-4 h-4 text-orange-400"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2 text-white">Complete Knowledge Transfer</h4>
+                <p class="text-gray-300 text-sm">No platform to sell you in perpetuity - full ownership</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

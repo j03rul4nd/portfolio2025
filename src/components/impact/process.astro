@@ -1,0 +1,106 @@
+---
+// Process.astro
+---
+
+<style>
+  .card-hover { 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+  }
+  .card-hover:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2); 
+  }
+  .animate-slide-up { 
+    animation: slideUp 0.8s ease-out forwards; 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  @keyframes slideUp { 
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    } 
+  }
+  .glass-effect { 
+    background: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+  }
+</style>
+
+<section class="py-20 px-6 content-overlay">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 animate-slide-up">
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">My Work Process</h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">From honest analysis to complete implementation</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card-hover glass-effect rounded-2xl p-8 animate-slide-up" style="animation-delay: 0.2s;">
+        <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
+          <span class="text-xl font-bold text-blue-400">1</span>
+        </div>
+        <h3 class="text-xl font-semibold mb-4 text-white">Complete Technical Analysis</h3>
+        <p class="text-gray-300 mb-4">Free 45-minute honest review based on real experience</p>
+        <div class="space-y-2 text-sm text-gray-300">
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+            <span>Evaluation of custom vs. existing solutions</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+            <span>Technology stack recommendation</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+            <span>Realistic timeline and cost analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-hover glass-effect rounded-2xl p-8 animate-slide-up" style="animation-delay: 0.4s;">
+        <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
+          <span class="text-xl font-bold text-purple-400">2</span>
+        </div>
+        <h3 class="text-xl font-semibold mb-4 text-white">Functional Prototype</h3>
+        <p class="text-gray-300 mb-4">Working system with your real data in 1-2 weeks</p>
+        <div class="space-y-2 text-sm text-gray-300">
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+            <span>Interactive demo your team can test</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+            <span>Basic integration with current systems</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+            <span>Concept validation with end users</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-hover glass-effect rounded-2xl p-8 animate-slide-up" style="animation-delay: 0.6s;">
+        <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-6">
+          <span class="text-xl font-bold text-green-400">3</span>
+        </div>
+        <h3 class="text-xl font-semibold mb-4 text-white">Complete Implementation</h3>
+        <p class="text-gray-300 mb-4">Optimized and transferable system in 2-6 weeks</p>
+        <div class="space-y-2 text-sm text-gray-300">
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+            <span>Clean, documented maintainable code</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+            <span>Complete technical documentation</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+            <span>Total knowledge transfer and autonomy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

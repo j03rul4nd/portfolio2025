@@ -1,0 +1,63 @@
+---
+// Hero.astro
+---
+
+<style>
+  .animate-slide-up { 
+    animation: slideUp 0.8s ease-out forwards; 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  @keyframes slideUp { 
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    } 
+  }
+  .text-gradient { 
+    background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text; 
+  }
+  .glass-effect { 
+    background: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+  }
+  .glass-light { 
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(8px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+  }
+</style>
+
+<section class="relative pt-24 pb-16 px-6 min-h-screen flex items-center content-overlay">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="animate-slide-up" style="animation-delay: 0.3s;">
+      <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
+        Paying <span class="text-gradient">€50K/Year</span><br>
+        to Watch Dots Moving<br>
+        on a Map?
+      </h1>
+    </div>
+    <div class="animate-slide-up" style="animation-delay: 0.5s;">
+      <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-normal leading-relaxed mb-8">
+        During my 3 years in industrial R&D, I've spoken with dozens of transport and infrastructure companies. The complaint is always the same: "Why do we need €200K annual licenses just to show our assets in real-time?"
+      </p>
+      <div class="glass-effect rounded-2xl p-6 mb-8">
+        <p class="text-lg font-semibold text-blue-300">There is a better way. And I know exactly how to build it.</p>
+      </div>
+    </div>
+    <div class="animate-slide-up" style="animation-delay: 0.7s;">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#analysis" class="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all hover:scale-105 shadow-lg">
+          Get Free Technical Analysis
+        </a>
+        <a href="#problem" class="px-8 py-4 glass-light rounded-lg font-semibold hover:bg-gray-800/50 transition-all text-white">
+          See the Problem
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

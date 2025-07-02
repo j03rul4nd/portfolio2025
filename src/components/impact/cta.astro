@@ -1,0 +1,61 @@
+---
+// CTA.astro
+---
+
+<style>
+  .animate-slide-up { 
+    animation: slideUp 0.8s ease-out forwards; 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  @keyframes slideUp { 
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    } 
+  }
+  .glass-effect { 
+    background: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+  }
+</style>
+
+<section id="analysis" class="py-20 px-6 content-overlay">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="animate-slide-up">
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">Ready for an Honest Technical Perspective?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        I won't sell you anything on the first call. I'll give you my technical analysis based on 3 years building exactly these types of systems in real industrial environments.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+        <a href="mailto:joelbenitezdonari@gmail.com" class="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all hover:scale-105 shadow-lg flex items-center gap-2">
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+          Schedule Free Analysis
+        </a>
+        <a href="mailto:joelbenitezdonari@gmail.com" class="px-8 py-4 glass-light rounded-lg font-semibold hover:bg-gray-800/50 transition-all flex items-center gap-2 text-white">
+          <i data-lucide="mail" class="w-5 h-5"></i>
+          Email Your Situation
+        </a>
+      </div>
+      
+      <div class="glass-effect rounded-2xl p-8">
+        <h3 class="text-xl font-semibold mb-4 text-white">Current Availability</h3>
+        <div class="grid md:grid-cols-3 gap-6 text-sm">
+          <div>
+            <p class="text-gray-400 mb-1">Next availability:</p>
+            <p class="font-semibold text-white">September 2025</p>
+          </div>
+          <div>
+            <p class="text-gray-400 mb-1">Simultaneous projects:</p>
+            <p class="font-semibold text-white">Maximum 3 clients</p>
+          </div>
+          <div>
+            <p class="text-gray-400 mb-1">Current status:</p>
+            <p class="font-semibold text-white">Completing developments</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

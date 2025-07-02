@@ -1,0 +1,42 @@
+---
+// FinalQuote.astro
+---
+
+<style>
+  .animate-slide-up { 
+    animation: slideUp 0.8s ease-out forwards; 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  @keyframes slideUp { 
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    } 
+  }
+  .glass-effect { 
+    background: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+  }
+</style>
+
+<section class="py-16 px-6 content-overlay">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="animate-slide-up">
+      <div class="glass-effect rounded-2xl p-8">
+        <blockquote class="text-2xl md:text-3xl font-light text-gray-300 italic mb-6">
+          "My advantage isn't being cheaper. It's knowing exactly what to build, how to build it, and how to transfer the knowledge because I've developed it in real industrial production."
+        </blockquote>
+        <div class="flex items-center justify-center gap-4">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face" class="w-16 h-16 rounded-full object-cover" alt="Joel Benítez Donari">
+          <div class="text-left">
+            <p class="font-semibold text-white">Joel Benítez Donari</p>
+            <p class="text-gray-300">Industrial Software Developer</p>
+            <p class="text-sm text-gray-400">3+ years R&D in industrial products</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

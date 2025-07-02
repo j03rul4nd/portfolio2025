@@ -1,0 +1,133 @@
+---
+// Problem.astro
+---
+
+<style>
+  .card-hover { 
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+  }
+  .card-hover:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2); 
+  }
+  .animate-slide-up { 
+    animation: slideUp 0.8s ease-out forwards; 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  @keyframes slideUp { 
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    } 
+  }
+  .glass-effect { 
+    background: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+  }
+</style>
+
+<section id="problem" class="py-20 px-6 content-overlay">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 animate-slide-up">
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-white">The Problem I've Seen in Every Client Conversation</h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">Three recurring pain points that cost industrial companies millions annually</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+      <div class="card-hover glass-effect rounded-2xl p-8 animate-slide-up" style="animation-delay: 0.2s;">
+        <div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mb-6">
+          <i data-lucide="euro" class="w-6 h-6 text-red-400"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-4 text-white">Digital Twins That Cost More Than the Real Asset</h3>
+        <div class="space-y-3 text-gray-300">
+          <div class="flex items-start gap-2">
+            <div class="w-1.5 h-1.5 bg-red-400 rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-sm">€500K + annual licenses for basic visualization</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <div class="w-1.5 h-1.5 bg-red-400 rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-sm">Using 10% of functionalities</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <div class="w-1.5 h-1.5 bg-red-400 rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-sm">€15K/year per user to view existing data</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-hover glass-effect rounded-2xl p-8 animate-slide-up" style="animation-delay: 0.4s;">
+        <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center mb-6">
+          <i data-lucide="map" class="w-6 h-6 text-orange-400"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-4 text-white">Industrial GIS Maps: Total Overkill</h3>
+        <div class="space-y-3 text-gray-300">
+          <div class="flex items-start gap-2">
+            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-sm">200 options when you only need 5</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-sm">30 seconds to load 20 points</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-sm">Designed for cartographers, not operators</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-hover glass-effect rounded-2xl p-8 animate-slide-up" style="animation-delay: 0.6s;">
+        <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
+          <i data-lucide="lock" class="w-6 h-6 text-purple-400"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-4 text-white">Automation Platforms: Vendor Lock-in</h3>
+        <div class="space-y-3 text-gray-300">
+          <div class="flex items-start gap-2">
+            <div class="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-sm">Start with €50K "basic" license</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <div class="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-sm">Customization requires €300K upgrade</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <div class="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+            <span class="text-sm">Data not exportable = trapped</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass-effect rounded-2xl p-8 animate-slide-up" style="animation-delay: 0.8s;">
+      <h3 class="text-2xl font-semibold mb-6 text-center text-white">What Companies Actually Need</h3>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
+            <i data-lucide="zap" class="w-6 h-6 text-green-400"></i>
+          </div>
+          <p class="font-medium text-green-300">Fast map with assets</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
+            <i data-lucide="activity" class="w-6 h-6 text-blue-400"></i>
+          </div>
+          <p class="font-medium text-blue-300">Real-time data overlays</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
+            <i data-lucide="users" class="w-6 h-6 text-purple-400"></i>
+          </div>
+          <p class="font-medium text-purple-300">Interface anyone can use</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
+            <i data-lucide="trending-down" class="w-6 h-6 text-orange-400"></i>
+          </div>
+          <p class="font-medium text-orange-300">Cost proportional to value</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
