@@ -1,0 +1,917 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/header_ui.astro';
+import Footer from '../components/footer_ui.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+type Props = CollectionEntry<'projects'>['data'];
+
+const { 
+  title, 
+  description, 
+  pubDate, 
+  updatedDate, 
+  heroImage,
+  tags = [],
+  projectType = "Industrial GIS Platform",
+  duration = "18 months",
+  teamSize = "5",
+  role = "Lead Frontend Developer",
+  year = "2024",
+  industry = "Industrial Automation",
+  technologies = ["JavaScript", "Leaflet", "AVEVA", "Mapbox", "WMS/WFS", "SVG", "ArcGIS"],
+  projectUrl = "https://www.gisize.com/",
+  demoUrl = "",
+  features = [
+    "Real-time asset visualization with interactive maps",
+    "Integration with multiple GIS providers and custom map creation",
+    "Platform migration from OMI to web-based accessibility",
+    "Native multi-touch and gesture controls",
+    "Highly customizable interface with design system",
+    "ArchestrA graphics rendering within maps"
+  ],
+  contributions = [
+    "Platform Migration: Migrated service from OMI-only to web-accessible platform",
+    "UI/UX Design: Created pixel-perfect responsive interface across all devices",
+    "Documentation: Developed comprehensive web documentation and user guides",
+    "GIS Innovation: Implemented advanced GIS techniques using Leaflet, WMS, and Mapbox",
+    "Architecture: Designed modular and scalable system architecture"
+  ],
+  successStories = [
+    {
+      title: "Barcelona Smart City",
+      description: "Real-time management of urban resources including elevators, escalators, public fountains, and irrigation systems for municipal parks."
+    },
+    {
+      title: "Ashghal Qatar Water & Wastewater",
+      description: "Management of over 500,000 assets in real-time, integrated with ArcGIS/Esri platform for comprehensive infrastructure control."
+    },
+    {
+      title: "Barcelona Tunnels",
+      description: "Advanced monitoring and control of tunnel infrastructure including lighting, traffic systems, and ventilation."
+    }
+  ],
+  impact = [
+    "Reduced engineering time by 60% through automated GIS item creation",
+    "Enabled real-time visualization of industrial assets across multiple platforms",
+    "Established new standard for GIS-industrial platform integration",
+    "Enhanced accessibility by migrating from desktop-only to web-based solution"
+  ]
+} = Astro.props;
+---
+
+<html lang="en">
+<head>
+  <BaseHead title={title} description={description} />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { 
+      background: #000; 
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+    .font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
+    .glass-border {
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.02);
+    }
+    .glass-card {
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      background: rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.5);
+    }
+    .content-section {
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(20px);
+    }
+    .fade-in { 
+      animation: fadeIn 0.8s ease-out forwards; 
+      opacity: 0; 
+    }
+    .slide-up { 
+      animation: slideUp 0.8s ease-out forwards; 
+      opacity: 0; 
+      transform: translateY(30px);
+    }
+    .blur-in { 
+      animation: blurIn 0.8s ease-out forwards; 
+      opacity: 0; 
+      filter: blur(10px);
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
+    .delay-700 { animation-delay: 0.7s; }
+    .delay-800 { animation-delay: 0.8s; }
+    .delay-900 { animation-delay: 0.9s; }
+    .delay-1000 { animation-delay: 1s; }
+    .delay-1100 { animation-delay: 1.1s; }
+    .delay-1200 { animation-delay: 1.2s; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes blurIn { to { opacity: 1; filter: blur(0); } }
+    
+    .spline-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .spline-background iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    
+    .hero-section {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 6rem 1.5rem 4rem;
+      text-align: center;
+    }
+    
+    .hero-content {
+      max-width: 56rem;
+      width: 100%;
+    }
+    
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #06b6d4;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+      font-family: 'Instrument Serif', serif;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 4rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .hero-title {
+        font-size: 5rem;
+      }
+    }
+    
+    .hero-description {
+      font-size: 1.25rem;
+      color: rgb(156, 163, 175);
+      margin-bottom: 2rem;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    
+    .hero-image {
+      width: 100%;
+      max-width: 72rem;
+      margin: 0 auto 4rem;
+      padding: 0 1.5rem;
+    }
+    
+    .hero-image img {
+      display: block;
+      margin: 0 auto;
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+      transition: all 0.5s ease;
+    }
+    
+    .hero-image img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.9);
+    }
+    
+    .main-content {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+    
+    @media (min-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 2fr 1fr;
+        gap: 4rem;
+      }
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      margin: 2.5rem 0 1rem;
+      font-family: 'Instrument Serif', serif;
+      letter-spacing: -0.025em;
+    }
+    
+    .section-title:first-child {
+      margin-top: 0;
+    }
+    
+    .content-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem;
+    }
+    
+    .content-list li {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
+      color: rgb(209, 213, 219);
+      line-height: 1.6;
+    }
+    
+    .content-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 6px;
+      height: 6px;
+      background: linear-gradient(45deg, #06b6d4, #3b82f6);
+      border-radius: 50%;
+    }
+    
+    .success-story {
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(6, 182, 212, 0.05));
+      border: 1px solid rgba(16, 185, 129, 0.15);
+      transition: all 0.3s ease;
+    }
+    
+    .success-story:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1));
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+    
+    .success-story h4 {
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+    }
+    
+    .success-story p {
+      font-size: 0.9rem;
+      color: rgb(209, 213, 219);
+      margin: 0;
+    }
+    
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .sidebar-card {
+      padding: 1.5rem;
+      border-radius: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .sidebar-title {
+      font-weight: 600;
+      color: white;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .sidebar-list {
+      font-size: 0.9rem;
+      color: rgb(209, 213, 219);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .sidebar-list li {
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .sidebar-list li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    
+    .sidebar-list .label {
+      font-weight: 500;
+      color: rgb(156, 163, 175);
+    }
+    
+    .sidebar-list .value {
+      font-weight: 600;
+      color: white;
+      text-align: right;
+    }
+    
+    .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .tag {
+      font-size: 0.75rem;
+      color: white;
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    
+    .tag:hover {
+      transform: translateY(-1px);
+    }
+    
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.75rem;
+    }
+    
+    .tech-tag {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: white;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.02);
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .tech-tag:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+    }
+    
+    .action-section {
+      max-width: 72rem;
+      margin: 0 auto 6rem;
+      padding: 0 1.5rem;
+    }
+    
+    .action-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      border-radius: 1rem;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+    }
+    
+    @media (min-width: 768px) {
+      .action-container {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      color: white;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.02);
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+    }
+    
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgb(156, 163, 175);
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .btn-back:hover {
+      color: white;
+      transform: translateX(-2px);
+    }
+    
+    .date-info {
+      margin-bottom: 1.5rem;
+      color: rgb(156, 163, 175);
+      font-size: 0.875rem;
+    }
+    
+    .floating-element {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .reading-width {
+      max-width: 65ch;
+    }
+    
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      margin: 3rem 0;
+    }
+    
+    @media (min-width: 768px) {
+      .section-divider {
+        margin: 4rem 0;
+      }
+    }
+
+    
+    
+    /* Tag color variations */
+    .tag-blue { background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); color: rgb(147, 197, 253); }
+    .tag-green { background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); color: rgb(134, 239, 172); }
+    .tag-purple { background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); color: rgb(196, 181, 253); }
+    .tag-yellow { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); color: rgb(252, 211, 77); }
+    .tag-pink { background: rgba(236, 72, 153, 0.1); border: 1px solid rgba(236, 72, 153, 0.3); color: rgb(249, 168, 212); }
+    .tag-orange { background: rgba(249, 115, 22, 0.1); border: 1px solid rgba(249, 115, 22, 0.3); color: rgb(253, 186, 116); }
+    .tag-cyan { background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3); color: rgb(103, 232, 249); }
+    .tag-indigo { background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); color: rgb(165, 180, 252); }
+  </style>
+</head>
+
+<body class="antialiased text-gray-100 bg-black">
+  <!-- Spline 3D Background -->
+  <div class="spline-background">
+    <iframe src='https://my.spline.design/claritystream-a72K0KUwFoZV82QBzvu52Kai/' frameborder='0' width='100%' height='100%'></iframe>
+  </div>
+
+  <Header />
+  
+  <main>
+    <article>
+      <!-- Hero Section -->
+      <section class="hero-section content-section">
+        <div class="hero-content">
+          <div class="project-badge fade-in delay-100">
+            <i data-lucide="map" class="w-4 h-4"></i>
+            {projectType}
+          </div>
+          <h1 class="hero-title slide-up delay-200">{title}</h1>
+          <p class="hero-description fade-in delay-400">{description}</p>
+          <div class="date-info fade-in delay-500">
+            <FormattedDate date={pubDate} />
+            {updatedDate && (
+              <span class="ml-4">
+                Updated: <FormattedDate date={updatedDate} />
+              </span>
+            )}
+          </div>
+          <div class="tag-grid fade-in delay-600">
+            {tags.map((tag: string, index: number) => {
+              const colors = ['blue', 'green', 'purple', 'yellow', 'pink', 'orange', 'cyan', 'indigo'];
+              const colorClass = `tag-${colors[index % colors.length]}`;
+              return (
+                <span class={`tag ${colorClass}`}>
+                  {tag}
+                </span>
+              );
+            })}
+          </div>
+          <div class="floating-element fade-in delay-800 mt-8">
+            <i data-lucide="arrow-down" class="w-6 h-6 text-neutral-400 animate-bounce"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hero Image -->
+      {heroImage && (
+        <div class="hero-image blur-in delay-600">
+          <img width={1020} height={480} src={heroImage} alt={title} />
+        </div>
+      )}
+
+      <!-- Main Content -->
+      <div class="content-section">
+        <div class="main-content">
+          <div class="content-grid">
+            <!-- Main Content Column -->
+            <div class="main-article">
+              <h2 class="section-title fade-in">Project Overview</h2>
+              <div class="reading-width fade-in delay-100">
+                <slot />
+              </div>
+              
+              <div class="section-divider"></div>
+              
+              <h3 class="section-title fade-in delay-200">Key Features</h3>
+              <ul class="content-list fade-in delay-300">
+                {features.map((feature: string, index: number) => (
+                  <li class={`fade-in delay-${300 + (index * 50)}`}>{feature}</li>
+                ))}
+              </ul>
+
+              <div class="section-divider"></div>
+
+              <h3 class="section-title fade-in delay-400">My Contributions</h3>
+              <ul class="content-list fade-in delay-500">
+                {contributions.map((contribution: string, index: number) => (
+                  <li class={`fade-in delay-${500 + (index * 50)}`} set:html={contribution} />
+                ))}
+              </ul>
+
+              <div class="section-divider"></div>
+
+              <h3 class="section-title fade-in delay-600">Success Stories</h3>
+              <div class="fade-in delay-700">
+                {successStories.map((story: any, index: number) => (
+                  <div class={`success-story fade-in delay-${700 + (index * 100)}`}>
+                    <h4>{story.title}</h4>
+                    <p>{story.description}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div class="section-divider"></div>
+
+              <h3 class="section-title fade-in delay-800">Technical Impact</h3>
+              <ul class="content-list fade-in delay-900">
+                {impact.map((item: string, index: number) => (
+                  <li class={`fade-in delay-${900 + (index * 50)}`}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+              <div class="sidebar-card glass-card fade-in delay-400">
+                <h4 class="sidebar-title">
+                  <i data-lucide="info" class="w-5 h-5 text-cyan-400"></i>
+                  Project Details
+                </h4>
+                <ul class="sidebar-list">
+                  <li><span class="label">Type:</span> <span class="value">{projectType}</span></li>
+                  <li><span class="label">Duration:</span> <span class="value">{duration}</span></li>
+                  <li><span class="label">Team Size:</span> <span class="value">{teamSize}</span></li>
+                  <li><span class="label">Role:</span> <span class="value">{role}</span></li>
+                  <li><span class="label">Year:</span> <span class="value">{year}</span></li>
+                  <li><span class="label">Industry:</span> <span class="value">{industry}</span></li>
+                </ul>
+              </div>
+
+              <div class="sidebar-card glass-card fade-in delay-600">
+                <h4 class="sidebar-title">
+                  <i data-lucide="layers" class="w-5 h-5 text-purple-400"></i>
+                  Technologies Used
+                </h4>
+                <div class="tech-grid">
+                  {technologies.map((tech: string, index: number) => (
+                    <span class={`tech-tag fade-in delay-${600 + (index * 50)}`}>{tech}</span>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Action Section -->
+  <section class="action-section">
+    <div class="action-container fade-in delay-1000">
+      <div class="button-group">
+        {projectUrl && (
+          <a href={projectUrl} target="_blank" class="btn">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+            View Project
+          </a>
+        )}
+        {demoUrl && (
+          <a href={demoUrl} target="_blank" class="btn">
+            <i data-lucide="play" class="w-4 h-4"></i>
+            Live Demo
+          </a>
+        )}
+      </div>
+      <a href="/#projects" class="btn-back">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        Back to Portfolio
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+
+
+
+  <script  type="module">
+    // Initialize Lucide icons
+     lucide.createIcons();
+    
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Add subtle parallax effect to hero image
+    const heroImage = document.querySelector('.hero-image img');
+    if (heroImage) {
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallax = scrolled * 0.3;
+        heroImage.style.transform = `translateY(${parallax}px)`;
+      });
+    }
+    
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all animated elements
+    document.querySelectorAll('.fade-in, .slide-up, .blur-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+
+
+
+  <style is:global>
+    .reading-width {
+      max-width: 65ch;
+    }
+    
+    /* Markdown Content Styling */
+    .main-article h1, .main-article h2, .main-article h3, .main-article h4, .main-article h5, .main-article h6 {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 600;
+      color: white;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.025em;
+      line-height: 1.3;
+    }
+    
+    .main-article h1 { font-size: 2.25rem; }
+    .main-article h2 { font-size: 1.875rem; }
+    .main-article h3 { font-size: 1.5rem; }
+    .main-article h4 { font-size: 1.25rem; }
+    .main-article h5 { font-size: 1.125rem; }
+    .main-article h6 { font-size: 1rem; }
+    
+    .main-article p {
+      color: rgb(209, 213, 219);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+    
+    .main-article ol, .main-article ul {
+      color: rgb(209, 213, 219);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+    }
+    
+    .main-article ol {
+      list-style-type: decimal;
+    }
+    
+    .main-article ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .main-article ul li {
+      position: relative;
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+    }
+    
+    .main-article ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6rem;
+      width: 6px;
+      height: 6px;
+      background: linear-gradient(45deg, #06b6d4, #3b82f6);
+      border-radius: 50%;
+    }
+    
+    .main-article ol li {
+      margin-bottom: 0.75rem;
+      padding-left: 0.5rem;
+    }
+    
+    .main-article ol li::marker {
+      color: #06b6d4;
+      font-weight: 600;
+    }
+    
+    .main-article strong {
+      color: white;
+      font-weight: 600;
+    }
+    
+    .main-article em {
+      color: rgb(156, 163, 175);
+      font-style: italic;
+    }
+    
+    .main-article code {
+      background: rgba(255, 255, 255, 0.1);
+      color: #06b6d4;
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .main-article pre {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+      backdrop-filter: blur(20px);
+    }
+    
+    .main-article pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      color: rgb(209, 213, 219);
+    }
+    
+    .main-article blockquote {
+      border-left: 4px solid #06b6d4;
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+      color: rgb(156, 163, 175);
+      font-style: italic;
+      background: rgba(6, 182, 212, 0.05);
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+      border-left: 4px solid #06b6d4;
+    }
+    
+    .main-article a {
+      color: #06b6d4;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+      transition: all 0.2s ease;
+    }
+    
+    .main-article a:hover {
+      color: #67e8f9;
+      border-bottom-color: #67e8f9;
+    }
+    
+    .main-article hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      margin: 2rem 0;
+    }
+    
+    .main-article table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .main-article th, .main-article td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .main-article th {
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 600;
+      color: white;
+    }
+    
+    .main-article td {
+      color: rgb(209, 213, 219);
+    }
+    
+    .main-article tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+</body>
+</html>

@@ -1,13 +1,13 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
+import Header from '../../components/header_ui.astro';
 import Footer from '../../components/footer_ui.astro'; 
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
-// import footer ui important
+
 const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
@@ -17,7 +17,9 @@ const posts = (await getCollection('blog')).sort(
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			main {
-				width: 960px;
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 2rem 1rem;
 			}
 			ul {
 				display: flex;
@@ -48,6 +50,8 @@ const posts = (await getCollection('blog')).sort(
 			ul li img {
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
+				width: 100%;
+				height: auto;
 			}
 			ul li a {
 				display: block;
@@ -69,6 +73,9 @@ const posts = (await getCollection('blog')).sort(
 				box-shadow: var(--box-shadow);
 			}
 			@media (max-width: 720px) {
+				main {
+					padding: 1rem;
+				}
 				ul {
 					gap: 0.5em;
 				}
@@ -85,7 +92,7 @@ const posts = (await getCollection('blog')).sort(
 			}
 		</style>
 	</head>
-	<body>
+	<body class="antialiased text-gray-200 bg-[#0a0a0a] font-inter selection:bg-indigo-600 selection:text-white">
 		<Header />
 		<main>
 			<section>

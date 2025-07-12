@@ -29,27 +29,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
  <script type="module">
     lucide.createIcons();
 
-    // Modal logic
-    const openBtn = document.getElementById('open-gisize-modal');
-    const closeBtn = document.getElementById('close-gisize-modal');
-    const modal = document.getElementById('gisize-modal');
-    openBtn.addEventListener('click', () => {
-      modal.classList.remove('hidden');
-      document.body.classList.add('modal-open');
-      // Chart only renders if modal is open
-      setTimeout(() => renderGisizeChart(), 200);
-    });
-    closeBtn.addEventListener('click', () => {
-      modal.classList.add('hidden');
-      document.body.classList.remove('modal-open');
-    });
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.add('hidden');
-        document.body.classList.remove('modal-open');
-      }
-    });
-
     // Chart.js for Gisize Maps
     let gisizeChartInstance = null;
     function renderGisizeChart() {

@@ -1,15 +1,162 @@
-  <!-- Header -->
-  <header class="w-full px-6 py-5 flex justify-between items-center border-b border-neutral-800 bg-neutral-950/80 backdrop-blur z-50 relative">
-    <div class="flex items-center gap-2">
-      <span class="text-lg font-semibold tracking-tight text-white">Joel Benítez Donari</span>
- <span class="px-3 py-1 rounded-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 text-xs font-medium text-purple-200 ml-2 hidden sm:inline">Product Builder</span>    </div>
-    <nav class="flex gap-6 items-center">
-      <a href="./projects/index.html" class="text-neutral-300 hover:text-white font-medium transition">Projects</a>
-      <a href="./impact/index.html" class="text-neutral-300 hover:text-white font-medium transition">Impact</a>
-      <a href="#about" class="text-neutral-300 hover:text-white font-medium transition">About</a>
-      <a href="#contact" class="text-neutral-300 hover:text-white font-medium transition">Contact</a>
-      <a href="https://www.linkedin.com/in/joel-benitez-iiot-industry/" target="_blank" title="LinkedIn" class="ml-2">
-        <svg id="linkedin-icon" width="22" height="22" class="lucide lucide-linkedin text-neutral-400 hover:text-blue-500 transition"></svg>
-      </a>
-    </nav>
-  </header>
+---
+// Obtener la URL actual para resaltar la página activa
+const currentPath = Astro.url.pathname;
+---
+
+<!-- Header -->
+<header class="w-full px-6 py-5 flex justify-between items-center border-b border-neutral-800 bg-neutral-950/80 backdrop-blur z-50 relative">
+  <div class="flex items-center gap-2">
+    <a href="/" class="text-lg font-semibold tracking-tight text-white hover:text-gray-200 transition">
+      Joel Benítez Donari
+    </a>
+    <span class="px-3 py-1 rounded-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 text-xs font-medium text-purple-200 ml-2 hidden sm:inline">
+      Product Builder
+    </span>
+  </div>
+
+  <!-- Desktop Navigation -->
+  <nav class="hidden md:flex gap-6 items-center">
+    <a 
+      href="/projects" 
+      class={`font-medium transition ${currentPath.startsWith('/projects') ? 'text-white' : 'text-neutral-300 hover:text-white'}`}
+    >
+      Projects
+    </a>
+    <a 
+      href="/impact" 
+      class={`font-medium transition ${currentPath.startsWith('/impact') ? 'text-white' : 'text-neutral-300 hover:text-white'}`}
+    >
+      Impact
+    </a>
+    <a 
+      href="/about" 
+      class={`font-medium transition ${currentPath.startsWith('/about') ? 'text-white' : 'text-neutral-300 hover:text-white'}`}
+    >
+      About
+    </a>
+    <a 
+      href="/contact" 
+      class={`font-medium transition ${currentPath.startsWith('/contact') ? 'text-white' : 'text-neutral-300 hover:text-white'}`}
+    >
+      Contact
+    </a>
+  </nav>
+
+  <!-- Mobile Menu Button -->
+  <button 
+    id="mobile-menu-button"
+    class="md:hidden flex flex-col gap-1 p-2 rounded-lg hover:bg-neutral-800 transition-colors"
+    aria-label="Toggle menu"
+  >
+    <span class="w-6 h-0.5 bg-white transition-all duration-300 ease-in-out"></span>
+    <span class="w-6 h-0.5 bg-white transition-all duration-300 ease-in-out"></span>
+    <span class="w-6 h-0.5 bg-white transition-all duration-300 ease-in-out"></span>
+  </button>
+</header>
+
+<!-- Mobile Menu -->
+<div 
+  id="mobile-menu"
+  class="md:hidden fixed inset-0 bg-neutral-950/95 backdrop-blur z-40 opacity-0 invisible transition-all duration-300 ease-in-out"
+>
+  <div class="flex flex-col items-center justify-center h-full gap-8">
+    <a 
+      href="/projects" 
+      class={`text-2xl font-medium transition mobile-menu-link ${currentPath.startsWith('/projects') ? 'text-white' : 'text-neutral-300 hover:text-white'}`}
+    >
+      Projects
+    </a>
+    <a 
+      href="/impact" 
+      class={`text-2xl font-medium transition mobile-menu-link ${currentPath.startsWith('/impact') ? 'text-white' : 'text-neutral-300 hover:text-white'}`}
+    >
+      Impact
+    </a>
+    <a 
+      href="/about" 
+      class={`text-2xl font-medium transition mobile-menu-link ${currentPath.startsWith('/about') ? 'text-white' : 'text-neutral-300 hover:text-white'}`}
+    >
+      About
+    </a>
+    <a 
+      href="/contact" 
+      class={`text-2xl font-medium transition mobile-menu-link ${currentPath.startsWith('/contact') ? 'text-white' : 'text-neutral-300 hover:text-white'}`}
+    >
+      Contact
+    </a>
+  </div>
+</div>
+
+<script>
+  // Mobile menu functionality
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+  let isMenuOpen = false;
+
+  // Toggle menu function
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+    
+    if (isMenuOpen) {
+      // Open menu
+      mobileMenu.classList.remove('opacity-0', 'invisible');
+      mobileMenu.classList.add('opacity-100', 'visible');
+      
+      // Transform hamburger to X
+      const spans = mobileMenuButton.querySelectorAll('span');
+      spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+      
+      // Prevent body scroll
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Close menu
+      mobileMenu.classList.add('opacity-0', 'invisible');
+      mobileMenu.classList.remove('opacity-100', 'visible');
+      
+      // Transform X back to hamburger
+      const spans = mobileMenuButton.querySelectorAll('span');
+      spans[0].style.transform = 'none';
+      spans[1].style.opacity = '1';
+      spans[2].style.transform = 'none';
+      
+      // Restore body scroll
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  // Event listeners
+  mobileMenuButton.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking on links
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (isMenuOpen) {
+        toggleMenu();
+      }
+    });
+  });
+
+  // Close menu when clicking outside
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+      toggleMenu();
+    }
+  });
+
+  // Close menu with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMenuOpen) {
+      toggleMenu();
+    }
+  });
+
+  // Handle resize - close menu if switching to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768 && isMenuOpen) {
+      toggleMenu();
+    }
+  });
+</script>
