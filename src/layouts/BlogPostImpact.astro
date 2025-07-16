@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
+import BaseHeadBlog from '../components/baseheadblog.astro';
 import Header from '../components/header_ui.astro';
 import Footer from '../components/footer_ui.astro';
 import FormattedDate from '../components/FormattedDate.astro';
@@ -63,7 +63,13 @@ const {
 
 <html lang="en">
 <head>
-  <BaseHead title={title} description={description} />
+<BaseHeadBlog 
+		title={title}
+		description={description}
+		image={heroImage}
+		pubDate={pubDate}
+		updatedDate={updatedDate}
+		/>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
