@@ -2,15 +2,29 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 
+
 interface Props {
-	title: string;
-	description: string;
-	image?: string;
+  title: string;
+  description: string;
+  image?: string;
+  keywords?: string;
+  author?: string;
+  type?: 'website' | 'article' | 'product';
+  locale?: string;
 }
+
+const { 
+  title, 
+  description, 
+  image = '/cover.png',
+  keywords = 'Joel Benítez Donari, Product Engineer, MVP Developer, Industrial IoT, 3D Web Applications, Full-Stack Developer, CTO, Startup Technical Leader',
+  author = 'Joel Benítez Donari',
+  type = 'website',
+  locale = 'en-US'
+} = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/cover.png' } = Astro.props;
 ---
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -39,16 +53,91 @@ const { title, description, image = '/cover.png' } = Astro.props;
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<!-- Idioma principal -->
+<html lang="en" />
+
+<!-- Author y keywords personalizados -->
+<meta name="author" content="Joel Benítez Donari" />
+<meta name="keywords" content="Joel Benítez Donari, Product Engineer, MVP Developer, Industrial IoT, 3D Web Applications, Three.js, .NET, TypeScript, Full-Stack Developer, CTO, Technical Leadership, SaaS Architecture, Real-time Systems" />
+
+<!-- Robots optimizado para tu perfil profesional -->
+<meta name="robots" content="index, follow, max-image-preview:large" />
+
+<!-- Geo tags para posicionamiento local -->
+<meta name="geo.region" content="ES-CT" />
+<meta name="geo.placename" content="Barcelona, Spain" />
+<meta name="geo.position" content="41.3851;2.1734" />
+<meta name="ICBM" content="41.3851, 2.1734" />
+
+<!-- Pero indica que sirves globalmente -->
+<meta name="coverage" content="Worldwide" />
+<meta name="distribution" content="Global" />
+<meta name="target" content="all" />
+
+<!-- Professional profile specific -->
+<meta name="classification" content="Professional Portfolio" />
+<meta name="subject" content="Product Engineering, Technical Leadership, MVP Development" />
+<meta name="abstract" content="Joel Benítez Donari - Product Engineer specializing in Industrial IoT, 3D Web Applications, and rapid MVP development" />
+
+
+
+<!-- Open Graph optimizado -->
+<meta property="og:type" content="profile" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content="Joel Benítez Donari" />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<!-- Profile specific -->
+<meta property="profile:first_name" content="Joel" />
+<meta property="profile:last_name" content="Benítez Donari" />
+
+<!-- Twitter Card optimizado -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.url)} />
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Joel Benítez Donari",
+  "jobTitle": "Product Engineer & Technical Leader",
+  "description": "I architect digital solutions that transform industrial operations. With deep R&D and SaaS expertise, I build scalable platforms—from real-time 3D systems to rapid MVPs.",
+  "url": "https://joelbenitez.dev",
+  "sameAs": [
+    "https://www.linkedin.com/in/joel-benitez-iiot-industry/",
+    "https://github.com/j03rul4nd"
+  ],
+  "knowsAbout": [
+    "Product Engineering",
+    "Industrial IoT",
+    "3D Web Applications",
+    "MVP Development",
+    "Technical Leadership",
+    "SaaS Architecture",
+    "Three.js",
+    ".NET",
+    "TypeScript"
+  ],
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Joel Benítez Donari - Product Engineer",
+  "url": "https://joelbenitez.dev",
+  "description": "Professional portfolio showcasing industrial innovation and modern product engineering solutions",
+  "author": {
+    "@type": "Person",
+    "name": "Joel Benítez Donari"
+  },
+  "inLanguage": "en-US"
+}
+</script>
