@@ -21,8 +21,9 @@ const {
   updatedDate,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const heroImage = new URL(image, Astro.url).toString();
+// Asegúrate de que la URL canónica sea consistente
+const canonicalURL = new URL(Astro.url.pathname, 'https://joelbenitez.dev');
+const heroImage = new URL(image, 'https://joelbenitez.dev').toString();
 ---
 
 <!-- Metadata general -->
