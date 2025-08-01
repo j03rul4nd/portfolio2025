@@ -58,28 +58,3 @@ const heroImage = new URL(image, 'https://joelbenitez.dev').toString();
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={heroImage} />
 
-<!-- JSON-LD: BlogPosting -->
-<script type="application/ld+json">
-{JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": title,
-  "image": [heroImage],
-  "author": {
-    "@type": "Person",
-    "name": author,
-    "url": "https://joelbenitez.dev"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": author
-  },
-  "datePublished": pubDate.toISOString(),
-  "dateModified": (updatedDate ?? pubDate).toISOString(),
-  "description": description,
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": canonicalURL.toString()
-  }
-})}
-</script>
