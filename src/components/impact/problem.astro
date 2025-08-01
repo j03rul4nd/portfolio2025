@@ -1,5 +1,14 @@
 ---
 // Problem.astro
+import { 
+  Euro,           // para "euro"
+  Map,            // para "map"
+  Zap,             // para "zap" 
+  Users,           // para "users"
+  Lock,            // para "lock"
+  Activity,       // para "activity"
+  TrendingDown,    // para "trending-down"
+} from 'lucide-react';
 ---
 
 <style>
@@ -38,7 +47,7 @@
     <div class="grid md:grid-cols-3 gap-8 mb-16">
       <div class="card-hover glass-effect rounded-2xl p-8 animate-slide-up" style="animation-delay: 0.2s;">
         <div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mb-6">
-          <i data-lucide="euro" class="w-6 h-6 text-red-400"></i>
+          <Euro className="w-6 h-6 text-red-400" />
         </div>
         <h3 class="text-xl font-semibold mb-4 text-white">Digital Twins That Cost More Than the Real Asset</h3>
         <div class="space-y-3 text-gray-300">
@@ -59,7 +68,7 @@
 
       <div class="card-hover glass-effect rounded-2xl p-8 animate-slide-up" style="animation-delay: 0.4s;">
         <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center mb-6">
-          <i data-lucide="map" class="w-6 h-6 text-orange-400"></i>
+          <Map className="w-6 h-6 text-orange-400" />
         </div>
         <h3 class="text-xl font-semibold mb-4 text-white">Industrial GIS Maps: Total Overkill</h3>
         <div class="space-y-3 text-gray-300">
@@ -80,7 +89,7 @@
 
       <div class="card-hover glass-effect rounded-2xl p-8 animate-slide-up" style="animation-delay: 0.6s;">
         <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
-          <i data-lucide="lock" class="w-6 h-6 text-purple-400"></i>
+          <Lock className="w-6 h-6 text-purple-400" />
         </div>
         <h3 class="text-xl font-semibold mb-4 text-white">Automation Platforms: Vendor Lock-in</h3>
         <div class="space-y-3 text-gray-300">
@@ -105,25 +114,25 @@
       <div class="grid md:grid-cols-4 gap-6">
         <div class="text-center">
           <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
-            <i data-lucide="zap" class="w-6 h-6 text-green-400"></i>
+            <Zap className="w-6 h-6 text-green-400" />
           </div>
           <p class="font-medium text-green-300">Fast map with assets</p>
         </div>
         <div class="text-center">
           <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
-            <i data-lucide="activity" class="w-6 h-6 text-blue-400"></i>
+            <Activity className="w-6 h-6 text-blue-400" />
           </div>
           <p class="font-medium text-blue-300">Real-time data overlays</p>
         </div>
         <div class="text-center">
           <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
-            <i data-lucide="users" class="w-6 h-6 text-purple-400"></i>
+            <Users className="w-6 h-6 text-purple-400" />
           </div>
           <p class="font-medium text-purple-300">Interface anyone can use</p>
         </div>
         <div class="text-center">
           <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
-            <i data-lucide="trending-down" class="w-6 h-6 text-orange-400"></i>
+            <TrendingDown className="w-6 h-6 text-orange-400" />
           </div>
           <p class="font-medium text-orange-300">Cost proportional to value</p>
         </div>

@@ -5,6 +5,16 @@ import Header from '../components/header_ui.astro';
 import Footer from '../components/footer_ui.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
+import { 
+  MapPinIcon,   // para "map-pin"
+  ArrowDown,     // para "arrow-down"
+  Info,
+  Layers,
+  ExternalLink,
+  Play,
+  ArrowLeft,
+} from 'lucide-react';
+
 type Props = CollectionEntry<'projects'>['data'];
 
 const { 
@@ -545,7 +555,7 @@ const {
       <section class="hero-section content-section">
         <div class="hero-content">
           <div class="project-badge fade-in delay-100">
-            <i data-lucide="map" class="w-4 h-4"></i>
+            <MapPinIcon className="w-4 h-4" />
             {projectType}
           </div>
           <h1 class="hero-title slide-up delay-200">{title}</h1>
@@ -570,7 +580,8 @@ const {
             })}
           </div>
           <div class="floating-element fade-in delay-800 mt-8">
-            <i data-lucide="arrow-down" class="w-6 h-6 text-neutral-400 animate-bounce"></i>
+            arrowdown
+            <ArrowDown className="w-6 h-6 text-neutral-400 animate-bounce" />
           </div>
         </div>
       </section>
@@ -637,7 +648,7 @@ const {
             <div class="sidebar">
               <div class="sidebar-card glass-card fade-in delay-400">
                 <h4 class="sidebar-title">
-                  <i data-lucide="info" class="w-5 h-5 text-cyan-400"></i>
+                  <Info className="w-5 h-5 text-cyan-400" />
                   Project Details
                 </h4>
                 <ul class="sidebar-list">
@@ -652,7 +663,7 @@ const {
 
               <div class="sidebar-card glass-card fade-in delay-600">
                 <h4 class="sidebar-title">
-                  <i data-lucide="layers" class="w-5 h-5 text-purple-400"></i>
+                  <Layers className="w-5 h-5 text-purple-400" />
                   Technologies Used
                 </h4>
                 <div class="tech-grid">
@@ -675,19 +686,19 @@ const {
       <div class="button-group">
         {projectUrl && (
           <a href={projectUrl} target="_blank" class="btn">
-            <i data-lucide="external-link" class="w-4 h-4"></i>
+            <ExternalLink className="w-4 h-4" />            
             View Project
           </a>
         )}
         {demoUrl && (
           <a href={demoUrl} target="_blank" class="btn">
-            <i data-lucide="play" class="w-4 h-4"></i>
+            <Play className="w-4 h-4" />
             Live Demo
           </a>
         )}
       </div>
       <a href="/#projects" class="btn-back">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <ArrowLeft className="w-4 h-4" />
         Back to Portfolio
       </a>
     </div>
@@ -698,8 +709,7 @@ const {
 
 
   <script  type="module">
-    // Initialize Lucide icons
-     lucide.createIcons();
+    
     
     // Smooth scrolling for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

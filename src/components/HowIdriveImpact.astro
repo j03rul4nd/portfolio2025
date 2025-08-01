@@ -1,5 +1,13 @@
-  <!-- how i drive impact -->
-    <rer id="howidriveimpact" class="w-full max-w-5xl mx-auto px-6 py-10">
+---
+ import { 
+  Zap,             // para "zap" 
+  TrendingUp,      // para "trending-up
+  Cpu,             // para "cpu"
+  Layers,          // para "layers"
+} from 'lucide-react';
+---
+ <!-- how i drive impact -->
+    <div id="howidriveimpact" class="w-full max-w-5xl mx-auto px-6 py-10">
       <div class="text-center mb-16 animate-fade-in">
         <div class="flex items-center justify-center gap-2 text-gray-400 mb-8">
           <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
@@ -57,7 +65,8 @@
               
               <div class="flex items-center gap-3 mb-6 relative z-10">
                 <div class="p-3 rounded-full bg-emerald-500/20 border border-emerald-400/30">
-                  <i data-lucide="zap" class="w-6 h-6 text-emerald-400"></i>
+                  <Zap className="w-6 h-6 text-emerald-400" client:load />
+
                 </div>
                 <span class="text-xs uppercase tracking-wide text-gray-300 font-medium font-geist">Speed</span>
               </div>
@@ -90,7 +99,8 @@
               
               <div class="flex items-center gap-3 mb-6 relative z-10">
                 <div class="p-3 rounded-full bg-blue-500/20 border border-blue-400/30">
-                  <i data-lucide="cpu" class="w-6 h-6 text-blue-400"></i>
+                  <Cpu className="w-6 h-6 text-blue-400" client:load />
+
                 </div>
                 <span class="text-xs uppercase tracking-wide text-gray-300 font-medium font-geist">Excellence</span>
               </div>
@@ -123,7 +133,8 @@
               
               <div class="flex items-center gap-3 mb-6 relative z-10">
                 <div class="p-3 rounded-full bg-purple-500/20 border border-purple-400/30">
-                  <i data-lucide="layers" class="w-6 h-6 text-purple-400"></i>
+                  <Layers className="w-6 h-6 text-purple-400" client:load />
+
                 </div>
                 <span class="text-xs uppercase tracking-wide text-gray-300 font-medium font-geist">Strategy</span>
               </div>
@@ -156,7 +167,8 @@
               
               <div class="flex items-center gap-3 mb-6 relative z-10">
                 <div class="p-3 rounded-full bg-pink-500/20 border border-pink-400/30">
-                  <i data-lucide="trending-up" class="w-6 h-6 text-pink-400"></i>
+                  <TrendingUp className="w-6 h-6 text-pink-400" client:load />
+
                 </div>
                 <span class="text-xs uppercase tracking-wide text-gray-300 font-medium font-geist">Impact</span>
               </div>
@@ -189,7 +201,7 @@
           </article>
         </section>
       </div>
-    </rer>
+    </div>
     <style>
       
     /* impact section style */
@@ -364,22 +376,26 @@
 // impact how i drive impact section
  // Initialize Vanta.js background
     document.addEventListener('DOMContentLoaded', function() {
-      VANTA.HALO({
-        el: "#vanta-bg",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 150,
-        minWidth: 200,
-        baseColor: 0x4f46e5,
-        backgroundColor: 0x0f0f23,
-        amplitudeFactor: 1.2,
-        size: 1.2
-      });
+     // initvanta();
     });
 
+    function initvanta(){
+    VANTA.HALO({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 150,
+            minWidth: 200,
+            baseColor: 0x4f46e5,
+            backgroundColor: 0x0f0f23,
+            amplitudeFactor: 1.2,
+            size: 1.2
+          });
+    }
+
     // Initialize Lucide icons
-    lucide.createIcons();
+    
     
     // Card stack interaction
     const container = document.getElementById('cards-container');

@@ -1,5 +1,13 @@
 ---
 const today = new Date();
+import { 
+  Code2,           // para "code-2"
+  Zap,             // para "zap" 
+  Mail,            // para "mail"
+  Linkedin,        // para "linkedin"
+  Calendar,        // para "calendar"
+  Clock,           // para "clock"
+} from 'lucide-react';
 ---
 
 <footer id="contact" class="py-16 px-6 border-t border-gray-800/50 content-overlay">
@@ -8,20 +16,20 @@ const today = new Date();
       <div class="md:col-span-2">
         <div class="flex items-center gap-2 mb-4">
           <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg flex items-center justify-center">
-            <i data-lucide="zap" class="w-4 h-4 text-white"></i>
+            <Zap className="w-4 h-4 text-white" />
           </div>
           <span class="text-lg font-semibold tracking-tight text-white">Joel Benítez Donari</span>
         </div>
         <p class="text-gray-300 mb-4">Industrial Software Developer specializing in custom visualization and automation solutions for transport and infrastructure companies.</p>
         <div class="flex gap-4">
           <a href="mailto:joelbenitezdonari@gmail.com" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
-            <i data-lucide="mail" class="w-5 h-5 text-gray-300"></i>
+            <Mail className="w-5 h-5 text-gray-300" />
           </a>
           <a href="https://www.linkedin.com/in/joel-benitez-iiot-industry/" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
-            <i data-lucide="linkedin" class="w-5 h-5 text-gray-300"></i>
+            <Linkedin className="w-5 h-5 text-gray-300" />
           </a>
           <a href="https://github.com/j03rul4nd" class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
-            <i data-lucide="github" class="w-5 h-5 text-gray-300"></i>
+            <Code2 className="w-5 h-5 text-gray-300" />
           </a>
         </div>
       </div>
@@ -40,15 +48,15 @@ const today = new Date();
         <h3 class="font-semibold text-white mb-4">Contact</h3>
         <div class="space-y-2 text-gray-300">
           <div class="flex items-center gap-2">
-            <i data-lucide="mail" class="w-4 h-4"></i>
+            <Mail className="w-4 h-4" />
             <a href="mailto:joelbenitezdonari@gmail.com" class="hover:text-white transition-colors">joelbenitezdonari@gmail.com</a>
           </div>
           <div class="flex items-center gap-2">
-            <i data-lucide="calendar" class="w-4 h-4"></i>
+            <Calendar className="w-4 h-4" />
             <span>Available September 2025</span>
           </div>
           <div class="flex items-center gap-2">
-            <i data-lucide="clock" class="w-4 h-4"></i>
+            <Clock className="w-4 h-4" />
             <span>45min Free Analysis</span>
           </div>
         </div>

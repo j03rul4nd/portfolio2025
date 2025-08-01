@@ -1,5 +1,9 @@
 ---
 // CTA.astro
+import { 
+  Mail,            // para "mail"
+  Calendar,        // para "calendar"
+} from 'lucide-react';
 ---
 
 <style>
@@ -30,11 +34,11 @@
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
         <a href="mailto:joelbenitezdonari@gmail.com" class="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all hover:scale-105 shadow-lg flex items-center gap-2">
-          <i data-lucide="calendar" class="w-5 h-5"></i>
+          <Calendar className="w-5 h-5" />
           Schedule Free Analysis
         </a>
         <a href="mailto:joelbenitezdonari@gmail.com" class="px-8 py-4 glass-light rounded-lg font-semibold hover:bg-gray-800/50 transition-all flex items-center gap-2 text-white">
-          <i data-lucide="mail" class="w-5 h-5"></i>
+          <Mail className="w-5 h-5" />
           Email Your Situation
         </a>
       </div>

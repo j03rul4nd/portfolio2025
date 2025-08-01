@@ -5,6 +5,10 @@ import Header from '../components/header_ui.astro';
 import Footer from '../components/footer_ui.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
+import { 
+  Calendar
+} from 'lucide-react';
+
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
@@ -241,7 +245,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         <!-- Header -->
         <header class="max-w-3xl mx-auto px-6 lg:px-0 my-12 text-center stagger">
           <div class="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-gray-400 font-medium slide-up">
-            <i data-lucide="calendar" class="w-4 h-4"></i>
+            <Calendar className="w-4 h-4" />
             <FormattedDate date={pubDate} />
           </div>
 
@@ -270,7 +274,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <Footer />
 
     <script type="module">
-      lucide.createIcons();
+     
       // Staggered fade-in on load
       addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.stagger > *').forEach(el => el.classList.add('fade-in'));

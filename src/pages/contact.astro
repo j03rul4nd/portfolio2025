@@ -3,6 +3,29 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/header_ui.astro';
 import Footer from '../components/footer_ui.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { 
+  MapPinIcon,   // para "map-pin"
+  ArrowDown,     // para "arrow-down"
+  Info,
+  Mail,
+  Smile,
+  Linkedin,
+  Github,
+  Calendar,
+  Clock1,
+  Zap,
+  Layers,
+  ExternalLink,
+  Play,
+  ArrowLeft,
+  Settings,
+  Map,
+  Box,             // para "box"
+  Target,          // para "target"
+  Unlock,         // para "unlock"
+  Share,           // para "share"
+  Clock,           // para "clock"
+} from 'lucide-react';
 ---
 
 <!doctype html>
@@ -33,11 +56,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
           <a href="mailto:joelbenitezdonari@gmail.com" class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-semibold text-black bg-white hover:bg-gray-200 transition">
             <span class="text-black">Email Me</span>
-            <i data-lucide="mail" class="w-4 h-4 ml-2"></i>
+            <Mail className="w-4 h-4 ml-2" />
           </a>
           <a href="https://calendly.com/joelbenitez/asesoria?month=2025-07" target="_blank" rel="noopener" class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-semibold border border-white/30 hover:border-white transition">
             <span class="text-white">Book a Call</span>
-            <i data-lucide="calendar" class="w-4 h-4 ml-2"></i>
+            <Calendar className="w-4 h-4 ml-2" />
           </a>
         </div>
       </section>
@@ -46,17 +69,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
       <section class="max-w-6xl mx-auto px-6 md:px-10 mt-32 space-y-20" data-animate>
         <div class="grid md:grid-cols-3 gap-8 text-center">
           <div class="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-            <i data-lucide="clock" class="w-8 h-8 mx-auto text-indigo-400"></i>
+            <Clock1 className="w-8 h-8 mx-auto text-indigo-400" />
             <h3 class="mt-4 font-medium">Avg. Response&nbsp;Time</h3>
             <p class="mt-2 text-gray-400 text-sm">1 hr 42 min</p>
           </div>
           <div class="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-            <i data-lucide="smile" class="w-8 h-8 mx-auto text-indigo-400"></i>
+            <Smile className="w-8 h-8 mx-auto text-indigo-400" />
             <h3 class="mt-4 font-medium">Happy&nbsp;Clients</h3>
             <p class="mt-2 text-gray-400 text-sm">100% last 12 mo.</p>
           </div>
           <div class="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-            <i data-lucide="zap" class="w-8 h-8 mx-auto text-indigo-400"></i>
+            <Zap className="w-8 h-8 mx-auto text-indigo-400" />
             <h3 class="mt-4 font-medium">Projects&nbsp;Shipped</h3>
             <p class="mt-2 text-gray-400 text-sm">27 since 2022</p>
           </div>
@@ -76,15 +99,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
           <div class="relative mt-8 flex flex-col sm:flex-row gap-4">
             <a href="https://calendly.com/joelbenitez/asesoria?month=2025-07" target="_blank" rel="noopener" class="inline-flex items-center px-8 py-3 rounded-lg text-sm font-semibold bg-white text-black hover:bg-gray-100 transition">
               Book a Call
-              <i data-lucide="calendar" class="w-4 h-4 ml-2"></i>
+              <Calendar className="w-4 h-4 ml-2" />
             </a>
             <a href="https://www.linkedin.com/in/joel-benitez-iiot-industry/" target="_blank" rel="noopener" class="inline-flex items-center px-8 py-3 rounded-lg text-sm font-semibold bg-white/10 hover:bg-white/20 transition">
               LinkedIn
-              <i data-lucide="linkedin" class="w-4 h-4 ml-2"></i>
+              <Linkedin className="w-4 h-4 ml-2" />
             </a>
             <a href="https://github.com/j03rul4nd" target="_blank" rel="noopener" class="inline-flex items-center px-8 py-3 rounded-lg text-sm font-semibold bg-white/10 hover:bg-white/20 transition">
               GitHub
-              <i data-lucide="github" class="w-4 h-4 ml-2"></i>
+              <Github className="w-4 h-4 ml-2" />
             </a>
           </div>
         </div>
@@ -187,19 +210,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 </style>
 
 <script type="module">
-  // Función para inicializar Lucide icons
-  function initLucideIcons() {
-    if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
-    }
-  }
+ 
 
   // Staggered reveal animation
   function initAnimations() {
     document.querySelectorAll('[data-animate]').forEach((el, i) => {
-        if(!el){
-          return;
-        }
+      if(!el){
+        return;
+      }
       el.style.opacity = '0';
       el.style.transform = 'translateY(24px)';
       setTimeout(() => {
@@ -213,11 +231,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   // Inicializar cuando el DOM esté listo
   document.addEventListener('DOMContentLoaded', () => {
     initAnimations();
-    
-    // Cargar Lucide icons
-    const script = document.createElement('script');
-    script.src = 'https://unpkg.com/lucide@latest';
-    script.onload = initLucideIcons;
-    document.head.appendChild(script);
+   // initLucideIcons(); // Ya no necesitas cargar el script dinámicamente
   });
 </script>

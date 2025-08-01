@@ -1,4 +1,11 @@
-  <!-- Contact Section -->
+---
+import { 
+  Mail,            // para "mail"
+  Linkedin,        // para "linkedin"
+  Calendar,        // para "calendar"
+} from 'lucide-react';
+---
+<!-- Contact Section -->
   <section id="contact" class="w-full max-w-4xl mx-auto px-6 py-20">
     <div class="text-center mb-12 initial-hidden animate-fade-in-left">
       <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-4">
@@ -12,19 +19,19 @@
     
     <div class="grid md:grid-cols-3 gap-6 initial-hidden animate-fade-in-left animate-delay-200">
       <a href="mailto:joelbenitezdonari@gmail.com" class="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-105 group">
-        <i data-lucide="mail" class="w-8 h-8 text-blue-400 mb-4 group-hover:scale-110 transition-transform"></i>
+        <Mail className="w-8 h-8 text-blue-400 mb-4 group-hover:scale-110 transition-transform" client:load />
         <h3 class="font-semibold text-white mb-2">Email</h3>
         <p class="text-sm text-neutral-300">joelbenitezdonari@gmail.com</p>
       </a>
       
       <a href="https://www.linkedin.com/in/joel-benitez-iiot-industry/" target="_blank" class="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-105 group">
-        <i data-lucide="linkedin" class="w-8 h-8 text-blue-400 mb-4 group-hover:scale-110 transition-transform"></i>
+        <Linkedin className="w-8 h-8 text-blue-400 mb-4 group-hover:scale-110 transition-transform" client:load />
         <h3 class="font-semibold text-white mb-2">LinkedIn</h3>
         <p class="text-sm text-neutral-300">Connect professionally</p>
       </a>
       
       <a href="https://calendly.com/joelbenitez/asesoria" class="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-105 group">
-        <i data-lucide="calendar" class="w-8 h-8 text-green-400 mb-4 group-hover:scale-110 transition-transform"></i>
+        <Calendar className="w-8 h-8 text-green-400 mb-4 group-hover:scale-110 transition-transform" client:load />
         <h3 class="font-semibold text-white mb-2">Schedule</h3>
         <p class="text-sm text-neutral-300">Book a meeting</p>
       </a>

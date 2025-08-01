@@ -1,3 +1,8 @@
+ ---
+ import { ArrowRight } from 'lucide-react';
+
+ ---
+ 
  <!-- About & Product Owner Capabilities -->
   <section id="about" class="w-full max-w-5xl mx-auto px-6 py-12 border-t border-neutral-800 flex flex-col md:flex-row gap-12 bg-neutral-950">
     <div class="flex-1">
@@ -55,7 +60,7 @@
       <div class="text-center lg:text-left">
           <a href="#contact" class="inline-flex items-center gap-2 rounded-lg bg-white text-neutral-950 font-medium px-6 py-3 hover:bg-neutral-200 transition-all duration-200 hover:shadow-lg hover:shadow-white/10">
               Let's Connect
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+             <ArrowRight className="w-4 h-4" client:load />
           </a>
       </div>
               
@@ -71,7 +76,7 @@
   </section>
 
   <script type="module">
-        lucide.createIcons();
+    
 
     // Product Leadership Chart
     const ctx = document.getElementById('productChart').getContext('2d');
