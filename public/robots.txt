@@ -71,7 +71,7 @@ User-agent: TelegramBot
 Allow: /
 
 # Sitemap location
-Sitemap: https://joelbenitez.dev/sitemap.xml
+Sitemap: https://joelbenitez.dev/sitemap-index.xml
 
 # Host specification (helps with canonical URLs)
 Host: https://joelbenitez.dev
