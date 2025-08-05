@@ -196,6 +196,145 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				color: #fbbf24;
 				font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
 			}
+
+			/* Estilos para bloques de código estilo Vercel */
+			.prose :global(pre) {
+				background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+				border: 1px solid rgba(55, 65, 81, 0.6);
+				border-radius: 16px;
+				padding: 2rem;
+				margin: 2.5rem 0;
+				overflow-x: auto;
+				position: relative;
+				backdrop-filter: blur(10px);
+				box-shadow: 
+					0 20px 40px rgba(0, 0, 0, 0.4),
+					0 0 0 1px rgba(255, 255, 255, 0.05),
+					inset 0 1px 0 rgba(255, 255, 255, 0.1);
+			}
+
+			.prose :global(pre::before) {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 1px;
+				background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+			}
+
+			.prose :global(pre code) {
+				background: none;
+				border: none;
+				padding: 0;
+				border-radius: 0;
+				font-size: 0.95rem;
+				line-height: 1.7;
+				color: #e2e8f0;
+				font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+				font-weight: 400;
+			}
+
+			/* Syntax highlighting estilo VS Code Dark+ */
+			.prose :global(pre .token.comment),
+			.prose :global(pre .token.prolog),
+			.prose :global(pre .token.doctype),
+			.prose :global(pre .token.cdata) {
+				color: #6a9955;
+				font-style: italic;
+			}
+
+			.prose :global(pre .token.punctuation) {
+				color: #d4d4d4;
+			}
+
+			.prose :global(pre .token.property),
+			.prose :global(pre .token.tag),
+			.prose :global(pre .token.boolean),
+			.prose :global(pre .token.number),
+			.prose :global(pre .token.constant),
+			.prose :global(pre .token.symbol),
+			.prose :global(pre .token.deleted) {
+				color: #b5cea8;
+			}
+
+			.prose :global(pre .token.selector),
+			.prose :global(pre .token.attr-name),
+			.prose :global(pre .token.string),
+			.prose :global(pre .token.char),
+			.prose :global(pre .token.builtin),
+			.prose :global(pre .token.inserted) {
+				color: #ce9178;
+			}
+
+			.prose :global(pre .token.operator),
+			.prose :global(pre .token.entity),
+			.prose :global(pre .token.url),
+			.prose :global(pre .token.variable) {
+				color: #d4d4d4;
+			}
+
+			.prose :global(pre .token.atrule),
+			.prose :global(pre .token.attr-value),
+			.prose :global(pre .token.function),
+			.prose :global(pre .token.class-name) {
+				color: #dcdcaa;
+			}
+
+			.prose :global(pre .token.keyword) {
+				color: #569cd6;
+				font-weight: 500;
+			}
+
+			.prose :global(pre .token.regex),
+			.prose :global(pre .token.important) {
+				color: #f92672;
+			}
+
+			/* Líneas de código con numeración */
+			.prose :global(pre[data-line-numbers]) {
+				padding-left: 3.5rem;
+			}
+
+			.prose :global(pre[data-line-numbers]::before) {
+				content: counter(line-number);
+				counter-increment: line-number;
+				position: absolute;
+				left: 1rem;
+				color: #6b7280;
+				font-size: 0.85rem;
+				line-height: 1.7;
+			}
+
+			/* Efectos de hover en bloques de código */
+			.prose :global(pre:hover) {
+				border-color: rgba(99, 102, 241, 0.4);
+				box-shadow: 
+					0 25px 50px rgba(0, 0, 0, 0.5),
+					0 0 0 1px rgba(99, 102, 241, 0.2),
+					inset 0 1px 0 rgba(255, 255, 255, 0.15);
+				transform: translateY(-1px);
+				transition: all 0.3s ease;
+			}
+
+			/* Scrollbar personalizado para código */
+			.prose :global(pre::-webkit-scrollbar) {
+				height: 8px;
+			}
+
+			.prose :global(pre::-webkit-scrollbar-track) {
+				background: rgba(31, 41, 55, 0.5);
+				border-radius: 4px;
+			}
+
+			.prose :global(pre::-webkit-scrollbar-thumb) {
+				background: rgba(99, 102, 241, 0.6);
+				border-radius: 4px;
+			}
+
+			.prose :global(pre::-webkit-scrollbar-thumb:hover) {
+				background: rgba(99, 102, 241, 0.8);
+			}
 			
 			.prose :global(blockquote) {
 				border-left: 4px solid #3b82f6;
@@ -206,6 +345,411 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				font-style: italic;
 				color: #cbd5e1;
 			}
+
+			/* Estilos para listas estilo Vercel */
+			.prose :global(ul),
+			.prose :global(ol) {
+				margin: 1.5rem 0;
+				padding-left: 0;
+				list-style: none;
+			}
+
+			.prose :global(ul li),
+			.prose :global(ol li) {
+				position: relative;
+				padding: 0.75rem 0 0.75rem 2rem;
+				margin: 0.5rem 0;
+				color: #d1d5db;
+				font-size: 1.125rem;
+				line-height: 1.6;
+				border-radius: 8px;
+				transition: all 0.2s ease;
+				background: rgba(17, 24, 39, 0.3);
+				border: 1px solid rgba(55, 65, 81, 0.4);
+			}
+
+			.prose :global(ul li:hover),
+			.prose :global(ol li:hover) {
+				background: rgba(79, 70, 229, 0.08);
+				border-color: rgba(99, 102, 241, 0.3);
+				transform: translateX(4px);
+			}
+
+			/* Bullets personalizados para UL */
+			.prose :global(ul li::before) {
+				content: '';
+				position: absolute;
+				left: 0.75rem;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+				box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+			}
+
+			/* Números personalizados para OL */
+			.prose :global(ol) {
+				counter-reset: custom-counter;
+			}
+
+			.prose :global(ol li) {
+				counter-increment: custom-counter;
+			}
+
+			.prose :global(ol li::before) {
+				content: counter(custom-counter);
+				position: absolute;
+				left: 0.75rem;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+				color: white;
+				font-size: 0.75rem;
+				font-weight: 600;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+			}
+
+			/* Listas anidadas */
+			.prose :global(ul ul),
+			.prose :global(ol ol),
+			.prose :global(ul ol),
+			.prose :global(ol ul) {
+				margin: 0.75rem 0;
+				padding-left: 1rem;
+			}
+
+			.prose :global(ul ul li),
+			.prose :global(ol ol li),
+			.prose :global(ul ol li),
+			.prose :global(ol ul li) {
+				padding: 0.5rem 0 0.5rem 1.5rem;
+				font-size: 1rem;
+				background: rgba(17, 24, 39, 0.2);
+				border: 1px solid rgba(55, 65, 81, 0.3);
+			}
+
+			.prose :global(ul ul li::before) {
+				width: 4px;
+				height: 4px;
+				left: 0.5rem;
+				background: linear-gradient(135deg, #6b7280, #9ca3af);
+			}
+
+			.prose :global(ol ol li::before) {
+				width: 16px;
+				height: 16px;
+				left: 0.5rem;
+				font-size: 0.65rem;
+				background: linear-gradient(135deg, #6b7280, #9ca3af);
+			}
+
+			/* Estilos para secciones especiales con emojis */
+			.prose :global(h3):has-text("Red Flag"),
+			.prose :global(h3):has-text("🚩"),
+			.prose :global(h3):has-text("⚠️"),
+			.prose :global(h3):has-text("🤖"),
+			.prose :global(h3):has-text("🌍") {
+				background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(185, 28, 28, 0.05));
+				border: 1px solid rgba(239, 68, 68, 0.2);
+				border-radius: 12px;
+				padding: 1rem 1.5rem;
+				margin: 2rem 0 1.5rem 0;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.prose :global(h3):has-text("Red Flag")::before,
+			.prose :global(h3):has-text("🚩")::before,
+			.prose :global(h3):has-text("⚠️")::before,
+			.prose :global(h3):has-text("🤖")::before,
+			.prose :global(h3):has-text("🌍")::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 2px;
+				background: linear-gradient(90deg, transparent, #ef4444, transparent);
+			}
+
+			/* Estilos para texto con badges */
+			.prose :global(p):has-text("Saw everywhere"),
+			.prose :global(p):has-text("My approach"),
+			.prose :global(p):has-text("Common mistake"),
+			.prose :global(p):has-text("Expensive lesson"),
+			.prose :global(p):has-text("My advantage") {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+			}
+
+			.prose :global(strong):has-text("Saw everywhere"),
+			.prose :global(strong):has-text("🔍 Saw everywhere") {
+				background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(185, 28, 28, 0.1));
+				color: #fca5a5;
+				padding: 0.5rem 1rem;
+				border-radius: 8px;
+				border: 1px solid rgba(239, 68, 68, 0.3);
+				display: inline-block;
+				font-size: 0.875rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.025em;
+			}
+
+			.prose :global(strong):has-text("My approach"),
+			.prose :global(strong):has-text("✅ My approach") {
+				background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(21, 128, 61, 0.1));
+				color: #86efac;
+				padding: 0.5rem 1rem;
+				border-radius: 8px;
+				border: 1px solid rgba(34, 197, 94, 0.3);
+				display: inline-block;
+				font-size: 0.875rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.025em;
+			}
+
+			.prose :global(strong):has-text("Common mistake"),
+			.prose :global(strong):has-text("Expensive lesson") {
+				background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(180, 83, 9, 0.1));
+				color: #fde047;
+				padding: 0.5rem 1rem;
+				border-radius: 8px;
+				border: 1px solid rgba(245, 158, 11, 0.3);
+				display: inline-block;
+				font-size: 0.875rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.025em;
+			}
+
+			.prose :global(strong):has-text("My advantage"),
+			.prose :global(strong):has-text("🎯 My advantage") {
+				background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(67, 56, 202, 0.1));
+				color: #a5b4fc;
+				padding: 0.5rem 1rem;
+				border-radius: 8px;
+				border: 1px solid rgba(99, 102, 241, 0.3);
+				display: inline-block;
+				font-size: 0.875rem;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.025em;
+			}
+
+			/* Estilos para separadores horizontales mejorados */
+			.prose :global(hr) {
+				border: none;
+				height: 1px;
+				background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+				margin: 3rem 0;
+				position: relative;
+			}
+
+			.prose :global(hr::before) {
+				content: '●';
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				background: #0a0a0a;
+				color: #6366f1;
+				padding: 0 1rem;
+				font-size: 0.75rem;
+			}
+
+			/* Estilos de tabla estilo Vercel */
+			.prose :global(table) {
+				width: 100%;
+				border-collapse: collapse;
+				margin: 2rem 0;
+				background: rgba(17, 24, 39, 0.8);
+				border: 1px solid rgba(55, 65, 81, 0.6);
+				border-radius: 12px;
+				overflow: hidden;
+				backdrop-filter: blur(10px);
+				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+			}
+
+			.prose :global(thead) {
+				background: linear-gradient(135deg, rgba(79, 70, 229, 0.15) 0%, rgba(99, 102, 241, 0.1) 100%);
+				border-bottom: 1px solid rgba(79, 70, 229, 0.3);
+			}
+
+			.prose :global(th) {
+				padding: 1rem 1.5rem;
+				text-align: left;
+				font-weight: 600;
+				font-size: 0.875rem;
+				color: #f3f4f6;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				border-right: 1px solid rgba(55, 65, 81, 0.4);
+				position: relative;
+			}
+
+			.prose :global(th:last-child) {
+				border-right: none;
+			}
+
+			.prose :global(th::after) {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 2px;
+				background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+			}
+
+			.prose :global(tbody tr) {
+				border-bottom: 1px solid rgba(55, 65, 81, 0.3);
+				transition: all 0.2s ease;
+			}
+
+			.prose :global(tbody tr:hover) {
+				background: rgba(79, 70, 229, 0.05);
+				transform: translateX(2px);
+			}
+
+			.prose :global(tbody tr:last-child) {
+				border-bottom: none;
+			}
+
+			.prose :global(td) {
+				padding: 1rem 1.5rem;
+				color: #d1d5db;
+				font-size: 0.95rem;
+				line-height: 1.5;
+				border-right: 1px solid rgba(55, 65, 81, 0.3);
+				vertical-align: top;
+			}
+
+			.prose :global(td:last-child) {
+				border-right: none;
+			}
+
+			.prose :global(td:first-child) {
+				font-weight: 600;
+				color: #f9fafb;
+				background: rgba(17, 24, 39, 0.5);
+			}
+
+			/* Estilos especiales para celdas con números/métricas */
+			.prose :global(td:nth-child(2)) {
+				font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+				font-weight: 500;
+				color: #60a5fa;
+			}
+
+			/* Efectos de hover mejorados */
+			.prose :global(tr:hover td:first-child) {
+				background: rgba(79, 70, 229, 0.1);
+				color: #ffffff;
+			}
+
+			/* Responsive para código */
+			@media (max-width: 768px) {
+				.prose :global(table) {
+					font-size: 0.875rem;
+					margin: 1.5rem 0;
+				}
+
+				.prose :global(th),
+				.prose :global(td) {
+					padding: 0.75rem 1rem;
+				}
+
+				.prose :global(th) {
+					font-size: 0.8rem;
+				}
+
+				/* Hacer la tabla scrolleable en móvil */
+				.prose :global(table) {
+					display: block;
+					overflow-x: auto;
+					white-space: nowrap;
+				}
+
+				.prose :global(thead),
+				.prose :global(tbody),
+				.prose :global(tr) {
+					display: table;
+					width: 100%;
+					table-layout: fixed;
+				}
+
+				.prose :global(th),
+				.prose :global(td) {
+					white-space: normal;
+				}
+
+				/* Código responsive */
+				.prose :global(pre) {
+					padding: 1.5rem 1rem;
+					margin: 2rem 0;
+					border-radius: 12px;
+					font-size: 0.875rem;
+				}
+
+				.prose :global(pre[data-line-numbers]) {
+					padding-left: 2.5rem;
+				}
+
+				.prose :global(pre[data-line-numbers]::before) {
+					left: 0.75rem;
+				}
+
+				/* Listas responsive */
+				.prose :global(ul li),
+				.prose :global(ol li) {
+					padding: 0.5rem 0 0.5rem 1.75rem;
+					font-size: 1rem;
+				}
+
+				.prose :global(ul li::before) {
+					left: 0.5rem;
+					width: 5px;
+					height: 5px;
+				}
+
+				.prose :global(ol li::before) {
+					left: 0.5rem;
+					width: 18px;
+					height: 18px;
+					font-size: 0.7rem;
+				}
+			}
+
+			/* Scrollbar personalizado para tablas en móvil */
+			.prose :global(table::-webkit-scrollbar) {
+				height: 6px;
+			}
+
+			.prose :global(table::-webkit-scrollbar-track) {
+				background: rgba(55, 65, 81, 0.3);
+				border-radius: 3px;
+			}
+
+			.prose :global(table::-webkit-scrollbar-thumb) {
+				background: rgba(99, 102, 241, 0.6);
+				border-radius: 3px;
+			}
+
+			.prose :global(table::-webkit-scrollbar-thumb:hover) {
+				background: rgba(99, 102, 241, 0.8);
+			}
+			
 			.spline-container {
 				position: fixed;
 				top: 0;
@@ -222,23 +766,23 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <Header />
 
 	<div class="spline-container">
-      <iframe src="https://my.spline.design/thresholddarkambientui-v0gkZCfi6zXm69kE0wccy70f/" frameborder="0" width="100%" height="100%" class="w-full h-full"></iframe>
+      <div id="spline-placeholder" class="w-full h-full bg-gradient-to-br from-gray-900/50 via-black/80 to-gray-800/60"></div>
     </div>
 	
     <main class="w-full ">
       <article class="mx-auto ">
         <!-- Hero -->
         {heroImage && (
-          <div class="relative w-full fade-in">
+          <div class="relative w-full max-w-4xl mx-auto px-6 lg:px-0 mt-8 fade-in">
             <img
               width={1280}
               height={640}
               src={heroImage}
               alt=""
-              class="block w-full object-cover rounded-2xl shadow-2xl mx-auto max-h-[40rem]"
+              class="block w-full object-cover rounded-2xl shadow-2xl mx-auto aspect-[2/1] max-h-[24rem]"
             />
             <!-- Soft gradient overlay -->
-            <div class="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-transparent via-black/20 to-black"></div>
+            <div class="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-transparent via-black/10 to-black/30"></div>
           </div>
         )}
 
@@ -265,7 +809,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         </header>
 
         <!-- Content -->
-        <section class="backdrop-blur-md max-w-3xl mx-auto prose prose-invert px-6 lg:px-0 mb-24 fade-in">
+        <section class="backdrop-blur-xl bg-black/20 max-w-3xl mx-auto prose prose-invert px-6 lg:px-0 mb-24 fade-in">
           <slot />
         </section>
       </article>
@@ -274,10 +818,38 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <Footer />
 
     <script type="module">
-     
+      // Carga asíncrona del iframe de Spline
+      function loadSplineBackground() {
+        const placeholder = document.getElementById('spline-placeholder');
+        if (placeholder) {
+          const iframe = document.createElement('iframe');
+          iframe.src = 'https://my.spline.design/thresholddarkambientui-v0gkZCfi6zXm69kE0wccy70f/';
+          iframe.frameBorder = '0';
+          iframe.width = '100%';
+          iframe.height = '100%';
+          iframe.className = 'w-full h-full opacity-0 transition-opacity duration-1000';
+          
+          // Cuando el iframe se carga, hace fade-in suave
+          iframe.onload = function() {
+            iframe.style.opacity = '1';
+            // Opcional: remover el placeholder después del fade-in
+            setTimeout(() => {
+              if (placeholder.parentNode) {
+                placeholder.remove();
+              }
+            }, 1000);
+          };
+          
+          placeholder.parentNode.appendChild(iframe);
+        }
+      }
+
       // Staggered fade-in on load
       addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.stagger > *').forEach(el => el.classList.add('fade-in'));
+        
+        // Cargar Spline después de un pequeño delay para no bloquear el render inicial
+        setTimeout(loadSplineBackground, 500);
       });
     </script>
   </body>
