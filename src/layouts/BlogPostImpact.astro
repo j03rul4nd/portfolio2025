@@ -727,13 +727,13 @@ const {
     
     // Add subtle parallax effect to hero image
     const heroImage = document.querySelector('.hero-image img');
-    if (heroImage) {
+    /**if (heroImage) {
       window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const parallax = scrolled * 0.3;
         heroImage.style.transform = `translateY(${parallax}px)`;
       });
-    }
+    }**/
     
     // Intersection Observer for animations
     const observerOptions = {
