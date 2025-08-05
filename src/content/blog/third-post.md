@@ -1,11 +1,11 @@
 ---
-title: '€47 Spent, €0 Earned: Lessons from My First Product Launch'
-description: 'How building my first commercial product taught me the difference between developing software and creating products people pay for'
+title: 'PDF AI Analyzer'
+description: 'How building my Saas Ai commercial product taught me the difference between developing software and creating products people pay for'
 pubDate: 'Jul 30 2025'
 heroImage: 'https://res.cloudinary.com/ds5i42or3/image/upload/v1754428196/image_dyyfjq.png'
 ---
-# €47 Spent, €0 Earned: Lessons from My First Product Launch
-*How building my first commercial product taught me the difference between developing software and creating products people pay for*
+# Lessons from My Saas Ai: PDF AI Analyzer
+*How building my Saas Ai product taught me the difference between developing software and creating products people pay for*
 ![Texto alternativo](https://res.cloudinary.com/ds5i42or3/image/upload/v1754428195/image_1_l4lt8j.png)
 ## The Real Numbers from My Experiment
 
