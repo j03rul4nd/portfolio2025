@@ -1,8 +1,10 @@
 ---
-title: 'Building a SaaS is Easy. Finding Users Who Pay? Here's What I Learned the Hard Way'
-description: 'From Zero to Paying Customers: What 50 Cold Emails Taught Me About Product-Market Fit'
-pubDate: 'sep 27 2025'
-heroImage: '/saas.png'
+title: Building a SaaS is Easy. Finding Users Who Pay? Here's What I Learned the Hard Way
+description: From Zero to Paying Customers, What 50 Cold Emails Taught Me About Product-Market Fit
+pubDate: 'Sep 26 2025'
+draft: false
+external: false
+heroImage: https://joelbenitez.onrender.com/images/blog/pbreditor/saas.png
 ---
 # I Built a SaaS in 14 Days, But the Real Product Journey Started After Launch
 
