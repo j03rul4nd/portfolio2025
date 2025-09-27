@@ -4,7 +4,7 @@ description: From Zero to Paying Customers, What 50 Cold Emails Taught Me About 
 pubDate: 'Sep 26 2025'
 draft: false
 external: false
-heroImage: https://joelbenitez.onrender.com/images/blog/pbreditor/saas.png
+heroImage: /saas.png
 ---
 # I Built a SaaS in 14 Days, But the Real Product Journey Started After Launch
 
