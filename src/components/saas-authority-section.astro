@@ -155,8 +155,12 @@ import { EnhancedInvoicePreview } from './EnhancedInvoicePreview';
     position: relative;
     width: 100%;
     background: #0a0a0a;
-    padding: 2rem 1rem;
+    padding: 0;
     overflow: hidden;
+  }
+
+  .container-resposive {
+    padding: 2.5rem 1.5rem;
   }
 
   .bg-gradient-1 {
@@ -260,12 +264,14 @@ import { EnhancedInvoicePreview } from './EnhancedInvoicePreview';
     display: flex;
     align-items: start;
     justify-content: space-between;
-    gap: 0.75rem;
+    gap: 0.5rem;
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
   }
 
   .product-info {
     flex: 1;
+    min-width: 200px;
   }
 
   .product-title {
@@ -288,6 +294,8 @@ import { EnhancedInvoicePreview } from './EnhancedInvoicePreview';
     color: rgb(96, 165, 250);
     text-decoration: none;
     transition: all 0.3s;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .visit-link:hover {
@@ -359,6 +367,7 @@ import { EnhancedInvoicePreview } from './EnhancedInvoicePreview';
   .closing {
     text-align: center;
     opacity: 0;
+    display: none;
   }
 
   .closing-card {
@@ -382,8 +391,12 @@ import { EnhancedInvoicePreview } from './EnhancedInvoicePreview';
   }
 
   @media (min-width: 768px) {
-    .saas-authority-section {
-      padding: 3rem 1rem;
+    .container-resposive {
+      padding: 3rem 1.5rem;
+    }
+
+    .closing {
+      display: block;
     }
   }
 </style>

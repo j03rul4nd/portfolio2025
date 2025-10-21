@@ -18,6 +18,8 @@ export function EnhancedInvoicePreview() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [currentStep, setCurrentStep] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+  const animationFrameRef = useRef<number | undefined>(undefined)
+  const intervalRef = useRef<number | undefined>(undefined)
 
   // Three.js scene setup
   useEffect(() => {
@@ -72,6 +74,8 @@ export function EnhancedInvoicePreview() {
     const clock = new THREE.Clock()
 
     const animate = () => {
+      if (!isVisible) return // Stop animation when not visible
+      
       const elapsedTime = clock.getElapsedTime()
 
       // Animate particles
@@ -84,20 +88,25 @@ export function EnhancedInvoicePreview() {
       torus.position.y = Math.sin(elapsedTime * 0.5) * 0.5
 
       renderer.render(scene, camera)
-      requestAnimationFrame(animate)
+      animationFrameRef.current = requestAnimationFrame(animate)
     }
 
-    animate()
+    if (isVisible) {
+      animate()
+    }
 
     // Cleanup
     return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current)
+      }
       renderer.dispose()
       particlesGeometry.dispose()
       particlesMaterial.dispose()
       torusGeometry.dispose()
       torusMaterial.dispose()
     }
-  }, [])
+  }, [isVisible])
 
   // Intersection Observer for scroll animation
   useEffect(() => {
@@ -113,6 +122,9 @@ export function EnhancedInvoicePreview() {
               duration: 1,
               ease: "power3.out",
             })
+          } else {
+            // Stop animations when not visible
+            setIsVisible(false)
           }
         })
       },
@@ -126,23 +138,29 @@ export function EnhancedInvoicePreview() {
     return () => observer.disconnect()
   }, [])
 
-  // Step cycling with GSAP
+  // Step cycling - only when visible
   useEffect(() => {
-    const interval = setInterval(() => {
+    if (!isVisible) return
+
+    intervalRef.current = window.setInterval(() => {
       setCurrentStep((prev) => (prev + 1) % invoiceSteps.length)
     }, 3000)
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+      }
+    }
+  }, [isVisible])
 
   const invoiceSteps: InvoiceStep[] = [
     {
       title: "Type your prompt...",
-      content: <StepInput />,
+      content: <StepInput isVisible={isVisible} />,
     },
     {
       title: "AI Processing...",
-      content: <StepProcessing />,
+      content: <StepProcessing isVisible={isVisible} />,
     },
     {
       title: "Generating Invoice...",
@@ -159,7 +177,7 @@ export function EnhancedInvoicePreview() {
   ]
 
   return (
-    <div ref={containerRef} className="relative w-full max-w-2xl mx-auto">
+    <div ref={containerRef} className="relative w-full max-w-2xl mx-auto min-h-[400px]">
       {/* Three.js Canvas Background */}
       <canvas
         ref={canvasRef}
@@ -174,7 +192,9 @@ export function EnhancedInvoicePreview() {
         className="relative p-8 rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/10 via-black/40 to-purple-500/10 backdrop-blur-xl overflow-hidden"
       >
         {/* Animated shimmer overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/20 to-transparent animate-shimmer" />
+        {isVisible && (
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/20 to-transparent animate-shimmer" />
+        )}
 
         {/* Content */}
         <div className="relative z-10">
@@ -200,18 +220,20 @@ export function EnhancedInvoicePreview() {
             </AnimatePresence>
           </motion.div>
 
-          {/* Step Content */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentStep}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.4 }}
-            >
-              {invoiceSteps[currentStep].content}
-            </motion.div>
-          </AnimatePresence>
+          {/* Step Content - Fixed height container */}
+          <div className="min-h-[280px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentStep}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4 }}
+              >
+                {invoiceSteps[currentStep].content}
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
           {/* Footer */}
           <motion.p
@@ -230,18 +252,18 @@ export function EnhancedInvoicePreview() {
 }
 
 // Step Components
-function StepInput() {
+function StepInput({ isVisible }: { isVisible: boolean }) {
   const textRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (textRef.current) {
+    if (textRef.current && isVisible) {
       gsap.from(textRef.current, {
         width: 0,
         duration: 1.5,
         ease: "steps(40)",
       })
     }
-  }, [])
+  }, [isVisible])
 
   return (
     <motion.div
@@ -261,11 +283,11 @@ function StepInput() {
   )
 }
 
-function StepProcessing() {
+function StepProcessing({ isVisible }: { isVisible: boolean }) {
   const progressRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (progressRef.current) {
+    if (progressRef.current && isVisible) {
       gsap.to(progressRef.current, {
         width: "70%",
         duration: 2,
@@ -273,8 +295,10 @@ function StepProcessing() {
         repeat: -1,
         yoyo: true,
       })
+    } else if (progressRef.current && !isVisible) {
+      gsap.killTweensOf(progressRef.current)
     }
-  }, [])
+  }, [isVisible])
 
   return (
     <motion.div
@@ -285,13 +309,13 @@ function StepProcessing() {
       <div className="flex items-center gap-3 mb-4">
         <motion.div
           className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold"
-          animate={{
+          animate={isVisible ? {
             boxShadow: [
               "0 0 20px rgba(96, 165, 250, 0.4)",
               "0 0 40px rgba(96, 165, 250, 0.7)",
               "0 0 20px rgba(96, 165, 250, 0.4)",
             ],
-          }}
+          } : {}}
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
         >
           AI
