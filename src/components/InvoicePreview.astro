@@ -1,0 +1,408 @@
+---
+// InvoicePreview.astro
+---
+
+<div class="invoice-preview animate-on-scroll">
+  <div class="shimmer-overlay"></div>
+
+  <div class="invoice-content">
+    <div class="invoice-header">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+      </svg>
+      <h4 class="invoice-title" id="invoice-step-title">Type your prompt...</h4>
+    </div>
+
+    <div id="invoice-steps"></div>
+
+    <p class="invoice-footer">
+      ✨ AI-generated • Shareable link • Auto-taxes • 17 currencies
+    </p>
+  </div>
+</div>
+
+<style>
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(96, 165, 250, 0.7);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .invoice-preview {
+    position: relative;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.08), rgba(0, 0, 0, 0.4), rgba(139, 92, 246, 0.08));
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .shimmer-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent, rgba(96, 165, 250, 0.15), transparent);
+    transform: translateX(-100%);
+    animation: shimmer 3s infinite;
+  }
+
+  .invoice-content {
+    position: relative;
+  }
+
+  .invoice-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .invoice-header svg {
+    color: rgb(96, 165, 250);
+  }
+
+  .invoice-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  .invoice-footer {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 1rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .input-box, .processing-box, .invoice-box {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .processing-box {
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  .invoice-box {
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .typing-effect {
+    overflow: hidden;
+    border-right: 2px solid;
+    white-space: nowrap;
+    animation: typing 1.5s steps(40) forwards, blink 0.75s step-end infinite;
+  }
+
+  .ai-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgb(59, 130, 246), rgb(139, 92, 246));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: rgba(59, 130, 246, 0.2);
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 70%;
+    background: linear-gradient(to right, rgb(59, 130, 246), rgb(139, 92, 246));
+    border-radius: 9999px;
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(96, 165, 250, 0.2),
+      transparent
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .paid-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: rgba(34, 197, 94, 0.15);
+    color: rgb(74, 222, 128);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+
+  .slide-in-right {
+    animation: slide-in-right 0.5s ease-out forwards;
+  }
+
+  .scale-in {
+    animation: scale-in 0.5s ease-out forwards;
+  }
+
+  .gradient-text {
+    background: linear-gradient(to right, rgb(96, 165, 250), rgb(168, 85, 247));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-fade-in-up");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  const invoicePreview = document.querySelector(".invoice-preview");
+  if (invoicePreview) {
+    observer.observe(invoicePreview);
+  }
+
+  // Invoice storytelling animation
+  const invoiceSteps = [
+    {
+      title: "Type your prompt...",
+      content: `
+        <div class="input-box scale-in">
+          <div style="font-size: 0.875rem; color: rgb(96, 165, 250); margin-bottom: 0.5rem; font-weight: 500;">
+            💬 User Input
+          </div>
+          <div class="typing-effect" style="font-size: 1rem; font-family: monospace; color: #ffffff;">
+            "Invoice for web design, $5k"
+          </div>
+        </div>
+      `
+    },
+    {
+      title: "AI Processing...",
+      content: `
+        <div class="processing-box scale-in">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div class="ai-badge pulse-glow">AI</div>
+            <div>
+              <div style="font-size: 0.875rem; color: rgb(96, 165, 250); font-weight: 500;">
+                🤖 Analyzing...
+              </div>
+              <div style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.5);">
+                Parsing details • Calculating taxes • Formatting
+              </div>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill shimmer"></div>
+          </div>
+        </div>
+      `
+    },
+    {
+      title: "Generating Invoice...",
+      content: `
+        <div class="invoice-box scale-in">
+          <div style="display: flex; justify-content: space-between; align-items: start; gap: 1rem; margin-bottom: 1rem;">
+            <div>
+              <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.5); margin-bottom: 0.25rem;">INVOICE</p>
+              <p style="font-size: 1.5rem; font-weight: bold; color: #ffffff;">#INV-2024-001</p>
+            </div>
+          </div>
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem; margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.5rem;">
+              <span style="color: rgba(255, 255, 255, 0.5);">Client:</span>
+              <span style="font-weight: 500; color: #ffffff;">Acme Corp</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+              <span style="color: rgba(255, 255, 255, 0.5);">Date:</span>
+              <span style="color: rgba(255, 255, 255, 0.8);">Jan 15, 2024</span>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      title: "Ready to Send!",
+      content: `
+        <div class="invoice-box scale-in">
+          <div style="display: flex; justify-content: space-between; align-items: start; gap: 1rem; margin-bottom: 1rem;">
+            <div>
+              <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.5); margin-bottom: 0.25rem;">INVOICE</p>
+              <p style="font-size: 1.5rem; font-weight: bold; color: #ffffff;">#INV-2024-001</p>
+            </div>
+          </div>
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem; margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.5rem;">
+              <span style="color: rgba(255, 255, 255, 0.5);">Client:</span>
+              <span style="font-weight: 500; color: #ffffff;">Acme Corp</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+              <span style="color: rgba(255, 255, 255, 0.5);">Date:</span>
+              <span style="color: rgba(255, 255, 255, 0.8);">Jan 15, 2024</span>
+            </div>
+          </div>
+          <div class="slide-in-right" style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem; margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.5rem;">
+              <span style="color: rgba(255, 255, 255, 0.5);">Web Development</span>
+              <span style="color: #ffffff;">$5,000</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+              <span style="color: rgba(255, 255, 255, 0.5);">UI/UX Design</span>
+              <span style="color: #ffffff;">$2,500</span>
+            </div>
+          </div>
+          <div class="scale-in" style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+              <span style="font-size: 1.125rem; font-weight: bold; color: #ffffff;">Total</span>
+              <span class="gradient-text" style="font-size: 2rem; font-weight: bold;">$7,500</span>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      title: "✓ Payment Received",
+      content: `
+        <div class="invoice-box scale-in">
+          <div style="display: flex; justify-content: space-between; align-items: start; gap: 1rem; margin-bottom: 1rem;">
+            <div>
+              <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.5); margin-bottom: 0.25rem;">INVOICE</p>
+              <p style="font-size: 1.5rem; font-weight: bold; color: #ffffff;">#INV-2024-001</p>
+            </div>
+            <span class="paid-badge slide-in-right">Paid</span>
+          </div>
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem; margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.5rem;">
+              <span style="color: rgba(255, 255, 255, 0.5);">Client:</span>
+              <span style="font-weight: 500; color: #ffffff;">Acme Corp</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+              <span style="color: rgba(255, 255, 255, 0.5);">Date:</span>
+              <span style="color: rgba(255, 255, 255, 0.8);">Jan 15, 2024</span>
+            </div>
+          </div>
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem; margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.5rem;">
+              <span style="color: rgba(255, 255, 255, 0.5);">Web Development</span>
+              <span style="color: #ffffff;">$5,000</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+              <span style="color: rgba(255, 255, 255, 0.5);">UI/UX Design</span>
+              <span style="color: #ffffff;">$2,500</span>
+            </div>
+          </div>
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+              <span style="font-size: 1.125rem; font-weight: bold; color: #ffffff;">Total</span>
+              <span class="gradient-text" style="font-size: 2rem; font-weight: bold;">$7,500</span>
+            </div>
+          </div>
+        </div>
+      `
+    }
+  ];
+
+  let currentStep = 0;
+  const titleEl = document.getElementById("invoice-step-title");
+  const stepsEl = document.getElementById("invoice-steps");
+
+  function updateInvoiceStep() {
+    const step = invoiceSteps[currentStep];
+    if (titleEl) titleEl.textContent = step.title;
+    if (stepsEl) stepsEl.innerHTML = step.content;
+    
+    currentStep = (currentStep + 1) % invoiceSteps.length;
+  }
+
+  updateInvoiceStep();
+  setInterval(updateInvoiceStep, 2500);
+</script>

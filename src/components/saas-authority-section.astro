@@ -1,0 +1,400 @@
+---
+// SaasAuthoritySection.astro
+// import InvoicePreview from './InvoicePreview.astro';
+import { EnhancedInvoicePreview } from './EnhancedInvoicePreview';
+
+---
+
+<section class="saas-authority-section">
+  <!-- Background Effects -->
+  <div class="bg-gradient-1"></div>
+  <div class="bg-gradient-2"></div>
+  <div class="bg-grid"></div>
+
+  <div class="container-resposive w-full max-w-5xl mx-auto px-6 py-10">
+      <div class="container">
+        <!-- Header -->
+        <div class="header animate-on-scroll">
+          <span class="badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            Ship Fast. Scale Faster.
+          </span>
+    
+          <h2 class="title">
+            I Build Products That
+            <br />
+            <span class="gradient-text">Users Actually Pay For.</span>
+          </h2>
+    
+          <p class="subtitle">
+            From 0→1 to scaling revenue, I craft <span class="highlight">end-to-end SaaS experiences</span> that combine 
+            technical depth with product intuition. Every feature ships with metrics, every UI decision impacts conversion.
+          </p>
+    
+          
+        </div>
+    
+        <!-- Featured Product -->
+        <div class="grid">
+          <!-- Product Card -->
+          <div class="product-card animate-on-scroll">
+            <div class="product-header">
+              <div class="product-info">
+                <h3 class="product-title">RapidInvoice.eu</h3>
+                <p class="product-subtitle">3 Clicks. 30 Seconds. $5K Invoice Ready.</p>
+              </div>
+              <a href="https://rapidinvoice.eu" target="_blank" rel="noopener noreferrer" class="visit-link">
+                Visit
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10v10M7 17L17 7"></path>
+                </svg>
+              </a>
+            </div>
+    
+            <p class="product-description">
+              Freelancers waste <span class="bold">47 minutes</span> per invoice. I built the
+              cure: AI that turns "invoice for web design, $5k" into a pixel-perfect, payment-ready invoice in{" "}
+              <span class="bold">30 seconds</span>.
+            </p>
+    
+            <!-- Features -->
+            <div class="features">
+              <div class="feature">
+                <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <div>
+                  <p class="feature-title">AI That Actually Works</p>
+                  <p class="feature-description">
+                    One sentence → Complete invoice with line items, taxes, payment terms. No forms. No friction.
+                  </p>
+                </div>
+              </div>
+    
+              <div class="feature">
+                <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <div>
+                  <p class="feature-title">Claude Desktop Integration</p>
+                  <p class="feature-description">
+                    MCP server = technical moat competitors can't clone in a weekend. Power users never leave their workflow.
+                  </p>
+                </div>
+              </div>
+    
+              <div class="feature">
+                <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                <div>
+                  <p class="feature-title">Built for the World</p>
+                  <p class="feature-description">
+                    17 currencies. 12 languages. 30+ countries. Real businesses operate globally—so does this.
+                  </p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Tech Stack -->
+            <div class="tech-stack">
+              {["Next.js", "Stripe", "Clerk", "AI SDK", "MCP"].map((tech) => (
+                <span class="tech-badge">{tech}</span>
+              ))}
+            </div>
+          </div>
+    
+          <!-- Invoice Preview -->
+          <!-- <InvoicePreview /> -->
+          <!-- Enhanced Invoice Preview (React Component) -->
+          <div class="invoice-preview-wrapper animate-on-scroll">
+            <EnhancedInvoicePreview client:visible />
+          </div>
+          
+        </div>
+    
+        <!-- Closing -->
+        <div class="closing animate-on-scroll">
+        <div class="closing-card">
+            <p class="closing-text">
+            I approach product development with a full-stack mindset: from architecting scalable backends to 
+            optimizing conversion funnels, from designing intuitive UX to implementing robust payment infrastructure.{" "}
+            <span class="gradient-text">
+                I don't just ship features, I ship outcomes that move metrics and delight users.
+            </span>
+            </p>
+        </div>
+        </div>
+      </div>
+  </div>
+
+</section>
+
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .saas-authority-section {
+    position: relative;
+    width: 100%;
+    background: #0a0a0a;
+    padding: 3rem 1rem;
+    overflow: hidden;
+  }
+
+  .bg-gradient-1 {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.08), transparent, rgba(139, 92, 246, 0.08));
+    pointer-events: none;
+  }
+
+  .bg-gradient-2 {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.1), transparent 50%);
+    pointer-events: none;
+  }
+
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .header {
+    margin-bottom: 4rem;
+    opacity: 0;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-bottom: 1rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    background: rgba(59, 130, 246, 0.15);
+    color: rgb(96, 165, 250);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .title {
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    color: #ffffff;
+  }
+
+  .gradient-text {
+    background: linear-gradient(to right, rgb(96, 165, 250), rgb(168, 85, 247));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 48rem;
+    line-height: 1.6;
+  }
+
+  .highlight {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .product-card {
+    padding: 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    opacity: 0;
+  }
+
+  .product-card:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .product-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-info {
+    flex: 1;
+  }
+
+  .product-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+  }
+
+  .product-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .visit-link {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: rgb(96, 165, 250);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .visit-link:hover {
+    color: rgb(147, 197, 253);
+  }
+
+  .product-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .bold {
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature {
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+  }
+
+  .feature-icon {
+    color: rgb(96, 165, 250);
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+  }
+
+  .feature-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: #ffffff;
+  }
+
+  .feature-description {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 0.375rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .closing {
+    text-align: center;
+    opacity: 0;
+  }
+
+  .closing-card {
+    display: inline-block;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.08), rgba(0, 0, 0, 0.4), rgba(139, 92, 246, 0.08));
+    backdrop-filter: blur(10px);
+    max-width: 56rem;
+  }
+
+  .closing-text {
+    font-size: clamp(0.875rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+  }
+</style>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-fade-in-up");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  const elements = document.querySelectorAll(".animate-on-scroll");
+  elements.forEach((el) => observer.observe(el));
+</script>
